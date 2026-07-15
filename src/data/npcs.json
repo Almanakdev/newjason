@@ -1,0 +1,137 @@
+[
+  {
+    "id": "mira_vale",
+    "name": "Mira Vale",
+    "role": "Elder & Retired Signal Engineer",
+    "region": "village",
+    "dialogueKey": "mira_vale",
+    "giftPreference": "berry_tea",
+    "home": { "x": -7, "z": -23 },
+    "appearance": { "bodyType": 1, "skinTone": 3, "faceShape": 1, "eyes": 3, "brows": 0, "mouth": 0, "hairstyle": 2, "hairColor": 10, "jacket": 6, "shirt": 9, "pants": 10, "shoes": 8, "scarf": 1, "hat": 0, "backpack": 0, "gloves": 0, "pin": 1 },
+    "schedule": [
+      { "start": 7, "end": 12, "x": 2, "z": -4, "activity": "idle" },
+      { "start": 12, "end": 14, "x": -13, "z": -11, "activity": "sit" },
+      { "start": 14, "end": 20, "x": 2, "z": -4, "activity": "idle" },
+      { "start": 20, "end": 23, "x": -3.5, "z": -22, "activity": "idle" },
+      { "start": 23, "end": 7, "x": -7, "z": -23, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "tavi_ember",
+    "name": "Tavi Ember",
+    "role": "Café Host — Startup HQ",
+    "region": "village",
+    "dialogueKey": "tavi_ember",
+    "giftPreference": "moon_petals",
+    "home": { "x": -14, "z": -14 },
+    "appearance": { "bodyType": 2, "skinTone": 4, "faceShape": 0, "eyes": 0, "brows": 0, "mouth": 2, "hairstyle": 3, "hairColor": 5, "jacket": 0, "shirt": 2, "pants": 8, "shoes": 11, "scarf": 0, "hat": 0, "backpack": 0, "gloves": 1, "pin": 0 },
+    "schedule": [
+      { "start": 6, "end": 11, "x": -13, "z": -11, "activity": "work" },
+      { "start": 11, "end": 15, "x": 6, "z": 19, "activity": "work" },
+      { "start": 15, "end": 21, "x": -13, "z": -11, "activity": "work" },
+      { "start": 21, "end": 23, "x": -5, "z": 10, "activity": "sit" },
+      { "start": 23, "end": 6, "x": -14, "z": -16, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "niko_thread",
+    "name": "Niko Thread",
+    "role": "Tailor & Brand Designer",
+    "region": "village",
+    "dialogueKey": "niko_thread",
+    "giftPreference": "woven_charm",
+    "home": { "x": 24, "z": 2 },
+    "appearance": { "bodyType": 0, "skinTone": 1, "faceShape": 2, "eyes": 2, "brows": 2, "mouth": 1, "hairstyle": 4, "hairColor": 8, "jacket": 7, "shirt": 5, "pants": 10, "shoes": 9, "scarf": 2, "hat": 0, "backpack": 0, "gloves": 0, "pin": 3 },
+    "schedule": [
+      { "start": 8, "end": 13, "x": 22, "z": 4, "activity": "work" },
+      { "start": 13, "end": 14.5, "x": 4, "z": 10, "activity": "sit" },
+      { "start": 14.5, "end": 20, "x": 22, "z": 4, "activity": "work" },
+      { "start": 20, "end": 23, "x": 16, "z": -10, "activity": "idle" },
+      { "start": 23, "end": 8, "x": 24, "z": 0, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "sera_bell",
+    "name": "Sera Bell",
+    "role": "Festival Bard & Sound Designer",
+    "region": "village",
+    "dialogueKey": "sera_bell",
+    "giftPreference": "flower_wreath",
+    "home": { "x": 7, "z": -26 },
+    "appearance": { "bodyType": 1, "skinTone": 0, "faceShape": 0, "eyes": 0, "brows": 1, "mouth": 2, "hairstyle": 2, "hairColor": 7, "jacket": 4, "shirt": 7, "pants": 6, "shoes": 3, "scarf": 0, "hat": 3, "backpack": 0, "gloves": 0, "pin": 2 },
+    "schedule": [
+      { "start": 9, "end": 12, "x": -8, "z": 23, "activity": "work" },
+      { "start": 12, "end": 16, "x": 0, "z": 8, "activity": "wander" },
+      { "start": 16, "end": 21, "x": -8, "z": 23, "activity": "work" },
+      { "start": 21, "end": 23.5, "x": -8, "z": 23, "activity": "sit" },
+      { "start": 23.5, "end": 9, "x": 7, "z": -26, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "bram_stone",
+    "name": "Bram Stone",
+    "role": "Builder & Hardware Tinkerer",
+    "region": "village",
+    "dialogueKey": "bram_stone",
+    "giftPreference": "veggie_stew",
+    "home": { "x": -28, "z": 12 },
+    "appearance": { "bodyType": 2, "skinTone": 5, "faceShape": 2, "eyes": 1, "brows": 1, "mouth": 0, "hairstyle": 0, "hairColor": 1, "jacket": 8, "shirt": 1, "pants": 10, "shoes": 8, "scarf": 0, "hat": 1, "backpack": 1, "gloves": 1, "pin": 0 },
+    "schedule": [
+      { "start": 6.5, "end": 12, "x": 13, "z": 7, "activity": "work" },
+      { "start": 12, "end": 13, "x": -13, "z": -11, "activity": "sit" },
+      { "start": 13, "end": 19, "x": 15, "z": -10, "activity": "work" },
+      { "start": 19, "end": 22, "x": -26, "z": 12, "activity": "idle" },
+      { "start": 22, "end": 6.5, "x": -28, "z": 14, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "luma_fen",
+    "name": "Luma Fen",
+    "role": "Village Archivist",
+    "region": "village",
+    "dialogueKey": "luma_fen",
+    "giftPreference": "storm_glass",
+    "home": { "x": -24, "z": -2 },
+    "appearance": { "bodyType": 0, "skinTone": 2, "faceShape": 1, "eyes": 3, "brows": 0, "mouth": 1, "hairstyle": 1, "hairColor": 3, "jacket": 5, "shirt": 9, "pants": 3, "shoes": 10, "scarf": 2, "hat": 0, "backpack": 2, "gloves": 0, "pin": 1 },
+    "schedule": [
+      { "start": 8, "end": 12, "x": -22, "z": 0, "activity": "work" },
+      { "start": 12, "end": 17, "x": 4, "z": -3, "activity": "wander" },
+      { "start": 17, "end": 22, "x": -22, "z": 0, "activity": "work" },
+      { "start": 22, "end": 24, "x": 0, "z": -4, "activity": "idle" },
+      { "start": 0, "end": 8, "x": -24, "z": -4, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "ayo_drift",
+    "name": "Ayo Drift",
+    "role": "Self-taught Junior Dev",
+    "region": "village",
+    "dialogueKey": "ayo_drift",
+    "giftPreference": "cloud_cotton",
+    "home": { "x": 16, "z": -12 },
+    "appearance": { "bodyType": 0, "skinTone": 6, "faceShape": 0, "eyes": 2, "brows": 2, "mouth": 2, "hairstyle": 3, "hairColor": 0, "jacket": 3, "shirt": 4, "pants": 2, "shoes": 5, "scarf": 1, "hat": 0, "backpack": 1, "gloves": 0, "pin": 3 },
+    "schedule": [
+      { "start": 7.5, "end": 13, "x": 8, "z": 21, "activity": "work" },
+      { "start": 13, "end": 18, "x": 30, "z": 10, "activity": "wander" },
+      { "start": 18, "end": 22.5, "x": 15, "z": -9, "activity": "work" },
+      { "start": 22.5, "end": 7.5, "x": 16, "z": -14, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "orin_moss",
+    "name": "Orin Moss",
+    "role": "Line Walker of the Valley",
+    "region": "valley",
+    "dialogueKey": "orin_moss",
+    "giftPreference": "glow_moss",
+    "home": { "x": 132, "z": 96 },
+    "appearance": { "bodyType": 1, "skinTone": 4, "faceShape": 2, "eyes": 1, "brows": 1, "mouth": 1, "hairstyle": 0, "hairColor": 4, "jacket": 3, "shirt": 8, "pants": 8, "shoes": 8, "scarf": 0, "hat": 2, "backpack": 2, "gloves": 1, "pin": 2 },
+    "schedule": [
+      { "start": 6, "end": 11, "x": 150, "z": 80, "activity": "wander" },
+      { "start": 11, "end": 14, "x": 132, "z": 96, "activity": "sit" },
+      { "start": 14, "end": 20, "x": 168, "z": 92, "activity": "wander" },
+      { "start": 20, "end": 24, "x": 133, "z": 97, "activity": "sit" },
+      { "start": 0, "end": 6, "x": 132, "z": 95, "activity": "sleep" }
+    ]
+  }
+]

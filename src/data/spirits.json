@@ -1,0 +1,38 @@
+[
+  {
+    "id": "piproot",
+    "name": "Piproot",
+    "variant": "meadow",
+    "personality": "Curious, shy and easily distracted.",
+    "habitat": "The meadow along the old cable route",
+    "ability": "Reveals buried crafting materials.",
+    "favoriteGift": "moon_petals",
+    "description": "A small round root-spirit with leaf-shaped ears and glowing seed markings.",
+    "palette": { "body": "#a8d977", "glow": "#eaffb0", "accent": "#6faf5a" },
+    "spawn": { "x": 150, "z": 80 }
+  },
+  {
+    "id": "rillet",
+    "name": "Rillet",
+    "variant": "river",
+    "personality": "Playful; follows anything that sparkles.",
+    "habitat": "The valley river shallows",
+    "ability": "Stirs fish toward patient anglers.",
+    "favoriteGift": "river_shell",
+    "description": "A droplet-shaped Echo with a fin crest that ripples when it laughs.",
+    "palette": { "body": "#7fb8e0", "glow": "#cfeeff", "accent": "#4f88b5" },
+    "spawn": { "x": 120, "z": 62 }
+  },
+  {
+    "id": "emberkin",
+    "name": "Emberkin",
+    "variant": "hearth",
+    "personality": "Sleepy, warm, endlessly loyal to the café.",
+    "habitat": "Beside Tavi's kitchen chimney",
+    "ability": "Keeps shared meals from ever going cold.",
+    "favoriteGift": "veggie_stew",
+    "description": "A round hearth-spirit with a tiny flame wisp that brightens when it's happy.",
+    "palette": { "body": "#e8a06b", "glow": "#ffd9a8", "accent": "#c96b4a" },
+    "spawn": { "x": -10, "z": -10 }
+  }
+]

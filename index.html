@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1734cf" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <title>Jason Show — The Kiriko Vale Startup Story</title>
+    <meta
+      name="description"
+      content="Write code. Make friends. Put a village back on the map. A cozy browser-native 3D life sim about rebooting a mountain village's dead Signal Tower."
+    />
+
+    <meta property="og:title" content="Jason Show — The Kiriko Vale Startup Story" />
+    <meta property="og:description" content="Write code. Make friends. Put a village back on the map." />
+    <meta property="og:image" content="/banner.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Poppins:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blue: #1734cf;
+        --blue-deep: #0e2196;
+        --blue-ink: #08114d;
+        --pink: #ec4380;
+        --pink-soft: #f9b3c2;
+        --pink-glow: rgba(236, 67, 128, 0.45);
+        --white: #ffffff;
+        --text: #eef1ff;
+        --text-dim: #9fadf0;
+        --line: rgba(249, 179, 194, 0.28);
+        --panel: rgba(9, 24, 118, 0.55);
+        --maxw: 1180px;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0; background: var(--blue-ink); color: var(--text);
+        font-family: 'Poppins', 'Zen Kaku Gothic New', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .jp { font-family: 'Zen Kaku Gothic New', sans-serif; }
+      a { color: inherit; text-decoration: none; }
+      .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+      .dots {
+        background-image: radial-gradient(var(--line) 1px, transparent 1px);
+        background-size: 22px 22px;
+      }
+
+      /* ---------- NAV ---------- */
+      nav {
+        position: sticky; top: 0; z-index: 50;
+        background: rgba(8, 17, 77, 0.82); backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(249, 179, 194, 0.16);
+      }
+      nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+      .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; letter-spacing: -0.02em; }
+      .brand-mark { display: block; border-radius: 8px; }
+      nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 14px; font-weight: 600; }
+      nav ul a { color: var(--text-dim); transition: color 0.2s; }
+      nav ul a:hover { color: var(--pink-soft); }
+      .btn {
+        display: inline-block; font-weight: 700; font-size: 14px; padding: 11px 24px;
+        border-radius: 999px; border: 2px solid var(--pink); background: var(--pink);
+        color: var(--white); cursor: pointer;
+        transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+      }
+      .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px var(--pink-glow); }
+      .btn.ghost { background: transparent; color: var(--pink-soft); }
+      .btn.ghost:hover { background: rgba(236, 67, 128, 0.14); }
+      .btn.big { font-size: 16px; padding: 15px 38px; }
+      .nav-toggle { display: none; background: none; border: 0; color: var(--pink-soft); font-size: 22px; cursor: pointer; }
+
+      /* ---------- HERO ---------- */
+      header.hero {
+        position: relative; overflow: hidden;
+        background:
+          radial-gradient(900px 420px at 78% 30%, rgba(236, 67, 128, 0.2), transparent 70%),
+          linear-gradient(180deg, var(--blue) 0%, var(--blue-deep) 100%);
+        border-bottom: 1px solid rgba(249, 179, 194, 0.2);
+      }
+      .hero-banner { position: relative; }
+      .hero-banner img { display: block; width: 100%; height: auto; }
+      /* The banner art already has corner brackets printed in it, so these are
+         only drawn for the no-image fallback — otherwise they double up. */
+      .hero-banner .corner { display: none; }
+      .hero-banner.no-img .corner {
+        display: block;
+        position: absolute; width: 34px; height: 34px;
+        border: 3px solid var(--pink); pointer-events: none;
+      }
+      .corner.tl { top: 18px; left: 18px; border-right: 0; border-bottom: 0; }
+      .corner.tr { top: 18px; right: 18px; border-left: 0; border-bottom: 0; }
+      .corner.bl { bottom: 18px; left: 18px; border-right: 0; border-top: 0; }
+      .corner.br { bottom: 18px; right: 18px; border-left: 0; border-top: 0; }
+
+      .hero-fallback { display: none; padding: 80px 24px 90px; text-align: center; }
+      .hero-banner.no-img img { display: none; }
+      .hero-banner.no-img .hero-fallback { display: block; }
+      .hero-fallback .kicker {
+        font-size: 13px; letter-spacing: 0.5em; color: var(--pink-soft);
+        margin: 0 0 18px; text-indent: 0.5em;
+      }
+      .hero-fallback h1 {
+        margin: 0; font-size: clamp(44px, 8vw, 96px); line-height: 0.92;
+        font-weight: 800; font-style: italic; letter-spacing: -0.03em;
+      }
+      .hero-fallback h1 em { color: var(--pink); font-style: italic; }
+
+      .hero-cta {
+        display: flex; flex-direction: column; align-items: center; gap: 16px;
+        padding: 34px 24px 46px; text-align: center;
+      }
+      .hero-cta .tagline {
+        margin: 0; font-size: clamp(17px, 2.4vw, 22px); font-weight: 600;
+        color: var(--white); letter-spacing: -0.01em;
+      }
+      .hero-cta .row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; }
+      .hero-cta .note { font-size: 13px; color: var(--text-dim); }
+      .hero-cta .note b { color: var(--pink-soft); font-weight: 600; }
+      .ca-line {
+        margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12px;
+        color: var(--text-dim); word-break: break-all; max-width: 92vw;
+      }
+      .ca-line:empty { display: none; }
+      button.btn { font-family: inherit; }
+
+      /* ---------- PILLARS ---------- */
+      .pillars { background: var(--blue-deep); border-bottom: 1px solid rgba(249, 179, 194, 0.18); }
+      .pillars .wrap { display: grid; grid-template-columns: repeat(4, 1fr); padding: 0 24px; }
+      .pillar { padding: 34px 20px; text-align: center; border-left: 1px solid var(--line); }
+      .pillar:first-child { border-left: 0; }
+      .pillar .glyph { font-family: 'JetBrains Mono', monospace; font-size: 22px; color: var(--pink); margin-bottom: 12px; }
+      .pillar h3 { margin: 0 0 6px; font-size: 16px; font-weight: 800; letter-spacing: 0.14em; }
+      .pillar p { margin: 0; font-size: 12px; color: var(--pink-soft); letter-spacing: 0.08em; }
+
+      /* ---------- SECTIONS ---------- */
+      section { padding: 88px 0; }
+      .sec-head { margin-bottom: 40px; }
+      .sec-head .tag {
+        display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 12px;
+        color: var(--pink); border: 1px solid var(--pink); border-radius: 6px;
+        padding: 4px 10px; margin-bottom: 14px;
+      }
+      .sec-head h2 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.02em; }
+      .sec-head p { margin: 0; color: var(--text-dim); font-size: 15px; max-width: 60ch; line-height: 1.7; }
+
+      /* ---------- STORY ---------- */
+      #story { background: var(--blue-ink); }
+      .story-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+      .story-copy p { font-size: 15.5px; line-height: 1.85; color: var(--text-dim); margin: 0 0 18px; }
+      .story-copy p strong { color: var(--pink-soft); font-weight: 600; }
+      .story-copy p:last-child { margin-bottom: 0; }
+      .terminal {
+        background: #050c38; border: 1px solid var(--line); border-radius: 12px;
+        overflow: hidden; box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+      }
+      .terminal .bar {
+        display: flex; align-items: center; gap: 7px; padding: 11px 14px;
+        background: rgba(236, 67, 128, 0.1); border-bottom: 1px solid var(--line);
+      }
+      .terminal .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--pink-soft); opacity: 0.8; }
+      .terminal .bar span { margin-left: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); }
+      .terminal pre {
+        margin: 0; padding: 20px; font-family: 'JetBrains Mono', monospace;
+        font-size: 12.5px; line-height: 1.9; color: var(--pink-soft); overflow-x: auto;
+      }
+      .terminal .c { color: var(--text-dim); }
+      .terminal .k { color: var(--white); }
+      .terminal .v { color: var(--pink); }
+
+      /* ---------- FEATURES ---------- */
+      #features { background: linear-gradient(180deg, var(--blue-deep), var(--blue-ink)); }
+      .feat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; }
+      .feat {
+        background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 26px;
+        transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      }
+      .feat:hover { transform: translateY(-4px); border-color: var(--pink); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45); }
+      .feat .glyph { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--pink); margin-bottom: 14px; }
+      .feat h3 { margin: 0 0 9px; font-size: 18px; font-weight: 700; }
+      .feat p { margin: 0; font-size: 13.5px; color: var(--text-dim); line-height: 1.7; }
+
+      /* ---------- CAST ---------- */
+      #cast { background: var(--blue-ink); }
+      .cast-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+      .member { text-align: center; }
+      .member .avatar {
+        width: 112px; height: 112px; margin: 0 auto 16px; border-radius: 50%;
+        background: var(--pink-soft); border: 3px solid var(--pink);
+        display: grid; place-items: center; font-family: 'JetBrains Mono', monospace;
+        font-size: 24px; font-weight: 700; color: var(--blue-deep);
+        box-shadow: 0 0 0 8px rgba(236, 67, 128, 0.12);
+      }
+      .member h3 { margin: 0 0 4px; font-size: 17px; font-weight: 700; }
+      .member .role { margin: 0 0 10px; font-size: 12px; letter-spacing: 0.16em; color: var(--pink); }
+      .member p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+
+      /* ---------- PLAY CTA ---------- */
+      #play {
+        background: radial-gradient(700px 300px at 50% 0%, rgba(236, 67, 128, 0.22), transparent 70%), var(--blue);
+        border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center;
+      }
+      #play h2 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -0.02em; }
+      #play .sub { margin: 0 0 30px; color: var(--pink-soft); font-size: 15px; }
+      .specs {
+        display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; margin-top: 30px;
+        font-size: 12px; letter-spacing: 0.12em; color: var(--text-dim); font-weight: 600;
+      }
+      .specs span { display: flex; align-items: center; gap: 7px; }
+      .specs span::before { content: '▸'; color: var(--pink); }
+
+      /* ---------- FOOTER ---------- */
+      footer { background: var(--blue-ink); padding: 44px 0; }
+      footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+      footer .copy { font-size: 12px; color: var(--text-dim); }
+      footer .tagline { font-size: 12px; color: var(--pink-soft); letter-spacing: 0.2em; }
+
+      /* ---------- REVEAL ---------- */
+      .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+      .reveal.in { opacity: 1; transform: none; }
+
+      /* ---------- RESPONSIVE ---------- */
+      @media (max-width: 900px) {
+        .story-grid { grid-template-columns: 1fr; gap: 32px; }
+      }
+      @media (max-width: 860px) {
+        nav ul { display: none; }
+        nav ul.open {
+          display: flex; position: absolute; top: 64px; left: 0; right: 0;
+          flex-direction: column; gap: 0; background: var(--blue-deep);
+          border-bottom: 1px solid var(--line);
+        }
+        nav ul.open li { padding: 14px 24px; border-top: 1px solid var(--line); }
+        .nav-toggle { display: block; }
+        nav .btn { display: none; }
+        .pillars .wrap { grid-template-columns: repeat(2, 1fr); }
+        .pillar:nth-child(3) { border-left: 0; }
+        .pillar:nth-child(n + 3) { border-top: 1px solid var(--line); }
+        section { padding: 64px 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * { animation: none !important; transition: none !important; }
+        .reveal { opacity: 1; transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="wrap">
+        <a class="brand" href="#top">
+          <img src="/logo.svg" alt="" class="brand-mark" width="34" height="34" />
+          <span>JASON</span>
+          <span style="color: var(--pink); font-style: italic">SHOW</span>
+        </a>
+        <ul id="navlinks">
+          <li><a href="#story">Story</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#cast">Cast</a></li>
+        </ul>
+        <a class="btn" id="buyCoin" href="#" target="_blank" rel="noopener noreferrer">Buy Coin</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="hero-banner" id="heroBanner">
+        <img src="/banner.png" alt="Jason Show — スクリプト / JSONスクリプトショー" id="bannerImg" />
+        <div class="hero-fallback">
+          <p class="kicker jp">スクリプト</p>
+          <h1>JASON <em>SHOW</em></h1>
+          <p class="jp" style="margin: 18px 0 0; color: var(--pink-soft); letter-spacing: 0.3em">
+            { JSONスクリプトショー }
+          </p>
+        </div>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+      </div>
+      <div class="hero-cta">
+        <p class="tagline">Write code. Make friends. Put a village back on the map.</p>
+        <div class="row">
+          <a class="btn big" href="./play.html">▶ Play Now!</a>
+          <button class="btn ghost big" id="copyCa" type="button" data-ca="">
+            <span id="copyCaLabel">Copy CA</span>
+          </button>
+        </div>
+        <p class="ca-line mono" id="caLine"></p>
+        <p class="note jp">インストール不要 · <b>No install, no download</b> — runs in your browser</p>
+      </div>
+    </header>
+
+    <div class="pillars">
+      <div class="wrap">
+        <div class="pillar">
+          <div class="glyph">{ }</div>
+          <h3>CODE</h3>
+          <p class="jp">コードを書く</p>
+        </div>
+        <div class="pillar">
+          <div class="glyph">↑</div>
+          <h3>SHARE</h3>
+          <p class="jp">シェアする</p>
+        </div>
+        <div class="pillar">
+          <div class="glyph">▷</div>
+          <h3>SHOW</h3>
+          <p class="jp">見せて・学ぶ</p>
+        </div>
+        <div class="pillar">
+          <div class="glyph">⟳</div>
+          <h3>REPEAT</h3>
+          <p class="jp">繰り返し伝える</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="story" class="dots">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="tag">// the story</span>
+          <h2>The Kiriko Vale Startup Story</h2>
+          <p>A cozy 3D life sim about the least glamorous startup ever founded — and the village that needed it.</p>
+        </div>
+        <div class="story-grid">
+          <div class="story-copy reveal">
+            <p>You quit on a Tuesday. Laptop, one bag, and a business plan written on the back of a resignation letter.</p>
+            <p>The last train of the day climbs into the Kiriko mountains — toward a village so far off the map that no map will admit it exists.</p>
+            <p><strong>Kiriko Vale had a Signal Tower once.</strong> It carried the village to the world: letters, songs, one very beloved weather page. Years ago, it went dark.</p>
+            <p>“So you're the programmer,” says the old woman sharing your train seat. Mira Vale. Retired signal engineer. Extremely unimpressed by your laptop stickers.</p>
+            <p>She hands you a battered lantern, warm and faintly humming. <strong>“It renders what the eye can't. Signals. Spirits. The village is full of both.”</strong></p>
+            <p>“Build your company here, if you like. But understand — nothing ships from Kiriko Vale until that tower sings again.”</p>
+          </div>
+          <div class="terminal reveal">
+            <div class="bar"><i></i><i></i><i></i><span>kiriko-vale — signal-tower.json</span></div>
+<pre>{
+  <span class="k">"tower"</span>: {
+    <span class="k">"id"</span>:        <span class="v">"kiriko-signal-01"</span>,
+    <span class="k">"status"</span>:    <span class="v">"OFFLINE"</span>,  <span class="c">// years now</span>
+    <span class="k">"uptime"</span>:    <span class="v">0</span>,
+    <span class="k">"listeners"</span>: <span class="v">0</span>
+  },
+  <span class="k">"village"</span>: {
+    <span class="k">"name"</span>:     <span class="v">"Kiriko Vale"</span>,
+    <span class="k">"onMap"</span>:    <span class="v">false</span>,
+    <span class="k">"spirits"</span>:  <span class="v">"many"</span>,
+    <span class="k">"patience"</span>: <span class="v">"surprising"</span>
+  },
+  <span class="k">"you"</span>: {
+    <span class="k">"role"</span>:   <span class="v">"founder"</span>,
+    <span class="k">"assets"</span>: [<span class="v">"laptop"</span>, <span class="v">"lantern"</span>],
+    <span class="k">"plan"</span>:   <span class="v">"make it sing again"</span>
+  }
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="tag">// features</span>
+          <h2>What You'll Do Out There</h2>
+          <p>Browser-native 3D. No launcher, no install — the whole valley streams straight into a tab.</p>
+        </div>
+        <div class="feat-grid" id="featGrid"></div>
+      </div>
+    </section>
+
+    <section id="cast" class="dots">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="tag">// cast</span>
+          <h2>Who You'll Meet</h2>
+          <p>Kiriko Vale is small. Everyone will remember how you treated them.</p>
+        </div>
+        <div class="cast-grid" id="castGrid"></div>
+      </div>
+    </section>
+
+    <section id="play">
+      <div class="wrap reveal">
+        <h2>The tower is still dark.</h2>
+        <p class="sub jp">コードを書いて、未来を創る。 — Write code, create the future.</p>
+        <a class="btn big" href="./play.html">▶ Start Playing — Free</a>
+        <div class="specs">
+          <span>NO INSTALL</span>
+          <span>WEBGL 2</span>
+          <span>KEYBOARD + GAMEPAD</span>
+          <span>TOUCH READY</span>
+          <span>AUTOSAVES</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <span class="copy">© 2026 Jason Show — The Kiriko Vale Startup Story. v0.1.0</span>
+        <span class="tagline jp">未来を創る。</span>
+      </div>
+    </footer>
+
+    <script type="module">
+      const FEATURES = [
+        { i: '{ }', t: 'Reboot the Signal Tower',
+          d: "The main quest line. Restore the village's link to the outside world, one repaired subsystem at a time." },
+        { i: '⌂', t: 'Build your home & studio',
+          d: 'Claim a plot, place furniture freely, and grow a one-laptop operation into something the village relies on.' },
+        { i: '✦', t: 'Spirits only you can see',
+          d: "Mira's lantern renders what the eye can't. Echoes drift through the valley — and some of them remember the tower." },
+        { i: '✂', t: 'Gather & craft',
+          d: 'Wood, stone, fiber, and stranger things. Resource nodes respawn; recipes unlock as the village opens up.' },
+        { i: '≈', t: 'Fish the mountain water',
+          d: 'A full minigame with its own rhythm. The best spots are the ones nobody tells you about.' },
+        { i: '♡', t: 'Friendships that matter',
+          d: "Every villager tracks how you treat them. Dialogue, gifts, and emotes shift what they'll tell you — and open up." },
+        { i: '☀', t: 'A living day cycle',
+          d: 'Twenty real minutes per day. Weather rolls through, lamps warm at dusk, and the valley changes mood with it.' },
+        { i: '⇄', t: 'Drop-in multiplayer',
+          d: "Interpolated netcode built in. Wander someone else's valley, or let them wander yours." },
+      ];
+
+      const CAST = [
+        { i: 'M', n: 'Mira Vale', r: 'RETIRED SIGNAL ENGINEER',
+          b: "Built the tower. Watched it go dark. Hands you a lantern and a standard you'll spend the game trying to meet." },
+        { i: '▲', n: 'The Valley', r: 'KIRIKO VALE',
+          b: 'Bridges, campfires, cloud line, and a tower on the ridge. Off every map — which is exactly the problem.' },
+        { i: '✦', n: 'The Echoes', r: 'SPIRITS',
+          b: "Not ghosts. Not quite signals either. They gather where the tower used to reach, and they've been waiting." },
+      ];
+
+      document.getElementById('featGrid').innerHTML = FEATURES.map(
+        (f, i) => `
+        <article class="feat reveal" style="transition-delay:${(i % 4) * 60}ms">
+          <div class="glyph">${f.i}</div>
+          <h3>${f.t}</h3>
+          <p>${f.d}</p>
+        </article>`
+      ).join('');
+
+      document.getElementById('castGrid').innerHTML = CAST.map(
+        (c, i) => `
+        <div class="member reveal" style="transition-delay:${i * 80}ms">
+          <div class="avatar">${c.i}</div>
+          <h3>${c.n}</h3>
+          <p class="role">${c.r}</p>
+          <p>${c.b}</p>
+        </div>`
+      ).join('');
+
+      // Banner is optional — fall back to the CSS wordmark if banner.png isn't there yet.
+      // This script is a module (deferred), so the image may have ALREADY failed before
+      // the listener attaches. Check the settled state as well as listening.
+      const bannerImg = document.getElementById('bannerImg');
+      const bannerFailed = () => document.getElementById('heroBanner').classList.add('no-img');
+      bannerImg.addEventListener('error', bannerFailed);
+      if (bannerImg.complete && bannerImg.naturalWidth === 0) bannerFailed();
+
+      const links = document.getElementById('navlinks');
+      document.getElementById('navToggle').addEventListener('click', () => links.classList.toggle('open'));
+      links.addEventListener('click', () => links.classList.remove('open'));
+
+      // ---------- Buy Coin / Copy CA ----------
+      // TODO: fill these two in.
+      const CONTRACT_ADDRESS = ''; // e.g. '0xabc123...' — shown under the hero and copied on click
+      const BUY_URL = ''; // e.g. your Uniswap / Raydium / pump.fun link
+
+      const buyCoin = document.getElementById('buyCoin');
+      if (BUY_URL) {
+        buyCoin.href = BUY_URL;
+      } else {
+        buyCoin.setAttribute('aria-disabled', 'true');
+        buyCoin.style.opacity = '0.5';
+        buyCoin.style.pointerEvents = 'none';
+      }
+
+      const copyBtn = document.getElementById('copyCa');
+      const copyLabel = document.getElementById('copyCaLabel');
+      const caLine = document.getElementById('caLine');
+
+      if (CONTRACT_ADDRESS) {
+        caLine.textContent = CONTRACT_ADDRESS;
+      } else {
+        copyBtn.disabled = true;
+        copyBtn.style.opacity = '0.5';
+        copyBtn.style.cursor = 'default';
+      }
+
+      copyBtn.addEventListener('click', async () => {
+        if (!CONTRACT_ADDRESS) return;
+        try {
+          await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+        } catch {
+          // clipboard API needs https (or localhost) — fall back to a selection copy
+          const tmp = document.createElement('textarea');
+          tmp.value = CONTRACT_ADDRESS;
+          tmp.style.position = 'fixed';
+          tmp.style.opacity = '0';
+          document.body.appendChild(tmp);
+          tmp.select();
+          document.execCommand('copy');
+          tmp.remove();
+        }
+        copyLabel.textContent = '✓ Copied!';
+        setTimeout(() => { copyLabel.textContent = 'Copy CA'; }, 1600);
+      });
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting) {
+              en.target.classList.add('in');
+              io.unobserve(en.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,762 @@
+{
+  "mira_vale": [
+    {
+      "id": "mira_celebrate",
+      "conditions": { "questAt": { "quest": "ch1_silent_waylight", "step": 7 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "Mira doesn't say anything at first. She just watches the beam climb into the clouds, one hand pressed over her heart.",
+            "\"Thirty years I maintained that tower. Thirty more I watched it stand there, dark, like a headstone with good bones.\"",
+            "\"And a programmer from the city brings it back with woven grass and a stubborn little root-spirit. The universe has a sense of humor.\""
+          ],
+          "next": "b"
+        },
+        "b": {
+          "lines": [
+            "\"Kiriko Vale is back on the map tonight. Which means, technically, your company now has an address.\"",
+            "\"Take my old fishing rod. Founders who never sit still ship worse products — the pond will teach you patience faster than any incident report.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "mira_step1",
+      "conditions": { "questAt": { "quest": "ch1_silent_waylight", "step": 1 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Wild fiber grows in pale tufts where the concrete gives way to grass — follow the east road toward the valley.\"",
+            "\"Three good strands. Yes, I know how it sounds. Around here, fiber has always grown on the hillsides. Where do you think the tower got its cable?\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "mira_step2",
+      "conditions": { "questAt": { "quest": "ch1_silent_waylight", "step": 2 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Bram keeps the crafting pavilion stocked — the open bench under the blue roof, east of the plaza.\"",
+            "\"Braid the fiber around two smooth stones. It's half optics, half prayer. The old lenses were all built this way.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "mira_step3",
+      "conditions": { "questAt": { "quest": "ch1_silent_waylight", "step": 3 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Before you touch my tower — your lantern's been flagging something in the valley all morning. Go look.\"",
+            "\"The Echoes lived in our signals, back when we had signals. One of them lost something in the last storm. Listen first. Fix second. That's the whole job, in code or otherwise.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "mira_step4",
+      "conditions": { "questAt": { "quest": "ch1_silent_waylight", "step": 4 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Seeds shine brightest at grass-height. Search the way you'd read someone else's code — slowly, and without assuming anything.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "mira_step5",
+      "conditions": { "questAt": { "quest": "ch1_silent_waylight", "step": 5 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"You have all three? Then don't stand here giving me a status update — that little one is waiting.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "mira_step6",
+      "conditions": { "questAt": { "quest": "ch1_silent_waylight", "step": 6 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"The cradle at the tower's base takes the lens. Seat it gently and step back.\"",
+            "\"Towers don't wake for hardware, you know. They wake for intent. Deploy like you mean it.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "mira_post",
+      "conditions": { "questCompleted": "ch1_silent_waylight" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"The beam held through the night. Steady as a heartbeat. Zero downtime — better than your industry manages, from what I read.\"",
+            "\"So. The village is online. The question now is what your little company actually does for the people standing in it.\""
+          ],
+          "choices": [
+            {
+              "text": "\"Actually — can I pitch you my startup?\"",
+              "conditions": { "notQuestStarted": "side_beta_circle" },
+              "effects": { "startQuest": "side_beta_circle" },
+              "next": "pitch"
+            },
+            {
+              "text": "Share a cup of berry tea with her.",
+              "conditions": { "hasItem": { "id": "berry_tea", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "berry_tea", "qty": 1 }],
+                "friendship": { "id": "mira_vale", "delta": 6 }
+              },
+              "next": "tea"
+            },
+            { "text": "\"Rest well, Mira.\"" }
+          ]
+        },
+        "pitch": {
+          "lines": [
+            "She holds up one hand before you get past the second sentence.",
+            "\"Not to me. I'm old, I like paper, and I already believe in you — that's three reasons I'm useless as a customer.\"",
+            "\"Pitch the village. Tavi, at the café. Ayo, in the garden. Luma, in the archive. If you can make those three care, you have a company. If not, you have a hobby with a logo.\""
+          ]
+        },
+        "tea": {
+          "lines": [
+            "She wraps both hands around the cup and closes her eyes.",
+            "\"My wife used to make this, back when the tower carried her weather page to three hundred readers. Thank you, founder. Truly.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "mira_intro",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "The old engineer from the train is waiting at the base of the dark tower, arms crossed, as if she ordered you from a catalog and you arrived late.",
+            "\"So. The programmer actually got off the train. Welcome to Kiriko Vale — population small, bandwidth zero.\"",
+            "\"You feel it, don't you? The quiet. This tower used to carry us to the whole world.\""
+          ],
+          "choices": [
+            { "text": "\"What happened to it?\"", "next": "hollow" },
+            { "text": "\"Why do you care about my startup?\"", "next": "about" }
+          ]
+        },
+        "hollow": {
+          "lines": [
+            "\"Storms, first. The strange kind — Hollow Weather, we call it. It confused the Echoes, and the Echoes... they're half of how the signal ever carried this far into the mountains.\",",
+            "\"The other half was people who maintained it. Which is why I'm very glad you stepped off that train.\""
+          ],
+          "next": "task"
+        },
+        "about": {
+          "lines": [
+            "\"Because a company that starts here has to fix here first. That's the deal. No tower, no launch, no exceptions.\"",
+            "\"And because that lantern I gave you hummed the moment you touched it. It doesn't do that for everyone. It didn't do it for me.\""
+          ],
+          "next": "task"
+        },
+        "task": {
+          "lines": [
+            "\"Here's your first ticket, then. The tower needs a new lens — woven fiber around smooth stone, the old way.\"",
+            "\"Gather three tufts of wild fiber from the east road. I'll rewire your lantern while you're out.\"",
+            "\"And, founder — walk slowly. This village remembers people who walk slowly.\""
+          ],
+          "effects": {
+            "startQuest": "ch1_silent_waylight",
+            "friendship": { "id": "mira_vale", "delta": 3 }
+          }
+        }
+      }
+    }
+  ],
+
+  "tavi_ember": [
+    {
+      "id": "tavi_deliver",
+      "conditions": { "questAt": { "quest": "side_tavi_stew", "step": 1 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"That's the good red clay! Oh, you beautiful mud-covered entrepreneur.\"",
+            "\"Give me one hour and this oven remembers every stew it ever made. Your 'startup HQ table' by the window comes with free refills forever. That's café law now.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "tavi_reminder",
+      "conditions": { "questActive": "side_tavi_stew" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"The pond's edge, where the sand goes red — that's where my clay washed off to. Two good scoops and this café becomes a proper office kitchen.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "tavi_intro",
+      "conditions": { "notFlag": "met_tavi" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "A woman waves a wooden spoon at you from the café doorway, cheeks pink from the stove.",
+            "\"You're the programmer! Mira said you'd look exactly this tired. Sit, sit — no wait, the chairs are drying. Stand entrepreneurially instead!\"",
+            "\"I'm Tavi. I run the Ember Kettle. If you're starting a company in this village, you're starting it at one of my tables. That's not an offer, it's a forecast.\""
+          ],
+          "effects": { "setFlag": "met_tavi", "friendship": { "id": "tavi_ember", "delta": 3 } },
+          "next": "b"
+        },
+        "b": {
+          "lines": [
+            "\"One problem: the storm knocked my clay oven cold, so the menu's short. Soup, or a slightly different soup. Hard to fuel a startup on that.\""
+          ],
+          "choices": [
+            {
+              "text": "\"I could dig up fresh clay for you.\"",
+              "effects": { "startQuest": "side_tavi_stew" },
+              "next": "quest"
+            },
+            { "text": "\"Good luck with the soup situation.\"" }
+          ]
+        },
+        "quest": {
+          "lines": [
+            "\"Would you? The pond's south bank, where the sand runs red. Two scoops!\"",
+            "\"Do this and your company eats free until it IPOs. Possibly longer. I'm sentimental about founders.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "tavi_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Smell that? Barley, moon petal, a whisper of smoke. That's the smell of a village getting its act together. Your laptop table is by the window, as always.\""
+          ],
+          "choices": [
+            {
+              "text": "Offer her some moon petals.",
+              "conditions": { "hasItem": { "id": "moon_petals", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "moon_petals", "qty": 1 }],
+                "friendship": { "id": "tavi_ember", "delta": 6 }
+              },
+              "next": "gift"
+            },
+            { "text": "\"Smells wonderful, Tavi.\"" }
+          ]
+        },
+        "gift": {
+          "lines": [
+            "\"Moon petals! These go straight into tonight's pot. You gather ingredients like a cook and negotiate like one too. I respect it.\""
+          ]
+        }
+      }
+    }
+  ],
+
+  "niko_thread": [
+    {
+      "id": "niko_intro",
+      "conditions": { "notFlag": "met_niko" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "The tailor circles you once, slowly, like you're a bolt of interesting cloth.",
+            "\"Hm. City hems, honest boots, hoodie doing most of the personality work. Founders always dress like the demo is in five minutes.\"",
+            "\"Niko Thread. Thread & Cloud is mine — the shop, the debt, and the dream. When your company needs a brand, you'll crawl to me. They all do.\""
+          ],
+          "effects": { "setFlag": "met_niko", "friendship": { "id": "niko_thread", "delta": 2 } },
+          "next": "b"
+        },
+        "b": {
+          "lines": ["\"Come by whenever you want a new look. First restyle is free; I need the portfolio and you need the confidence.\""],
+          "choices": [
+            { "text": "\"Restyle me now, please!\"", "effects": { "openCustomization": true } },
+            { "text": "\"I'll think about it.\"" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "niko_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Back again! The mirror missed you. How's the company? Still pre-revenue? Wonderful, so is fashion.\""
+          ],
+          "choices": [
+            { "text": "\"I'd like a new look.\"", "effects": { "openCustomization": true } },
+            {
+              "text": "Give Niko a woven charm.",
+              "conditions": { "hasItem": { "id": "woven_charm", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "woven_charm", "qty": 1 }],
+                "friendship": { "id": "niko_thread", "delta": 6 }
+              },
+              "next": "gift"
+            },
+            { "text": "\"Just passing through.\"" }
+          ]
+        },
+        "gift": {
+          "lines": [
+            "\"You wove this? The tension's uneven and I adore it. Handmade things should look like hands made them. Put that in your brand guidelines.\""
+          ]
+        }
+      }
+    }
+  ],
+
+  "sera_bell": [
+    {
+      "id": "sera_deliver",
+      "conditions": { "questAt": { "quest": "side_sera_song", "step": 1 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "Sera holds a shell to each ear and stands very still.",
+            "\"There it is. THAT's your launch sound. The river wrote it; I just took dictation.\"",
+            "\"When your product ships, this village is going to hear about it in D major. First performance is dedicated to you. And the river. Mostly you.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "sera_reminder",
+      "conditions": { "questActive": "side_sera_song" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Two river shells, founder! The banks past the wooden bridge are covered in them. Listen for the shiny silence.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "sera_intro",
+      "conditions": { "notFlag": "met_sera" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "Someone is humming on the empty festival stage — three notes, over and over, each time a little sadder.",
+            "\"Oh! An audience. Sorry, you caught the workshop version.\"",
+            "\"Sera Bell. Festival-runner, song-writer, and as of the moment I heard a startup was moving in: your head of sound design. Unpaid. Unasked. Unstoppable.\""
+          ],
+          "effects": { "setFlag": "met_sera", "friendship": { "id": "sera_bell", "delta": 3 } },
+          "next": "b"
+        },
+        "b": {
+          "lines": [
+            "\"Every great product makes a noise when it arrives. Yours currently makes none, which is honest but unmarketable. I'm composing your launch jingle — it needs something the wind can't fake.\""
+          ],
+          "choices": [
+            {
+              "text": "\"What if I found you river shells?\"",
+              "effects": { "startQuest": "side_sera_song" },
+              "next": "quest"
+            },
+            { "text": "\"I'll leave you to your three notes.\"" }
+          ]
+        },
+        "quest": {
+          "lines": [
+            "\"Yes! Two of them — the river tunes them all winter. Bring them and I'll show you what a village sounds like when it's proud of something.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "sera_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Every village has a song under it. Every company too. Yours is still humming to itself — give it time.\""
+          ],
+          "choices": [
+            {
+              "text": "Give Sera a flower wreath.",
+              "conditions": { "hasItem": { "id": "flower_wreath", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "flower_wreath", "qty": 1 }],
+                "friendship": { "id": "sera_bell", "delta": 6 }
+              },
+              "next": "gift"
+            },
+            { "text": "\"Keep humming, Sera.\"" }
+          ]
+        },
+        "gift": {
+          "lines": ["\"A stage crown! Now I *have* to finish the jingle. That's how bribery works, right?\""]
+        }
+      }
+    }
+  ],
+
+  "bram_stone": [
+    {
+      "id": "bram_intro",
+      "conditions": { "notFlag": "met_bram" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "A broad man sets down a beam, wipes his hands, and studies you the way he'd study a load-bearing wall.",
+            "\"You'll do. Bram Stone — I keep the village standing when the sky has other ideas. Heard you build things too, the invisible kind.\"",
+            "\"The pavilion bench is open to everyone. Tools stay sharp, sawdust gets swept, nobody crafts sad. Same rules apply to software, I expect.\""
+          ],
+          "effects": { "setFlag": "met_bram", "friendship": { "id": "bram_stone", "delta": 2 } }
+        }
+      }
+    },
+    {
+      "id": "bram_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"See that plot east of the plaza? Yours now. Every founder gets a patch of mountain to argue with. Office, house, shrine to your unfinished ideas — your call.\"",
+            "\"Press H out there and build something worth coming home to.\""
+          ],
+          "choices": [
+            {
+              "text": "Share some hearth stew with him.",
+              "conditions": { "hasItem": { "id": "veggie_stew", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "veggie_stew", "qty": 1 }],
+                "friendship": { "id": "bram_stone", "delta": 6 }
+              },
+              "next": "gift"
+            },
+            { "text": "\"Thanks, Bram.\"" }
+          ]
+        },
+        "gift": {
+          "lines": ["\"Tavi's stew? You're hired. For what, I'll figure out later. Every company needs one guy like me and you can't afford me yet.\""]
+        }
+      }
+    }
+  ],
+
+  "luma_fen": [
+    {
+      "id": "luma_intro",
+      "conditions": { "notFlag": "met_luma" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "A young archivist looks up from a rubbing of spiral carvings, ink smudged clear up one arm.",
+            "\"Do you know what this is? Duet notation. The old Signal Tower was a *duet* — human intent and Echo song, transmitted together. The village literally sang its data uphill.\"",
+            "\"Luma Fen. Archivist. Sorry. I skip introductions when the carvings are interesting, which is always.\""
+          ],
+          "effects": { "setFlag": "met_luma", "friendship": { "id": "luma_fen", "delta": 2 } },
+          "next": "b"
+        },
+        "b": {
+          "lines": [
+            "\"Here's what keeps me up at night: I archived the village's old website before the tower died. Three hundred pages. Recipes, weather, one extremely petty forum thread about fence heights. A whole village, cached. Someone should put it back online.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "luma_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Every Echo you befriend is a page recovered. Every signal restored, a chapter. I'm cataloguing your whole startup, you know. Try to be a good primary source.\""
+          ],
+          "choices": [
+            {
+              "text": "Show her a piece of storm glass.",
+              "conditions": { "hasItem": { "id": "storm_glass", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "storm_glass", "qty": 1 }],
+                "friendship": { "id": "luma_fen", "delta": 8 }
+              },
+              "next": "gift"
+            },
+            { "text": "\"I'll do my best to be a good chapter.\"" }
+          ]
+        },
+        "gift": {
+          "lines": [
+            "\"Storm glass?! Fused by Hollow lightning — do you know how rare — okay. Breathing. This goes in the archive with your name on the card. Founder AND field researcher.\""
+          ]
+        }
+      }
+    }
+  ],
+
+  "ayo_drift": [
+    {
+      "id": "ayo_intro",
+      "conditions": { "notFlag": "met_ayo" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "A kid in an oversized scarf is sketching gears on the back of a seed packet.",
+            "\"Wait. WAIT. Are you the startup person? I have QUESTIONS. First: how attached are you to walking? Because I'm building a wind-lift and it's *almost* not terrifying.\"",
+            "\"Ayo. Ayo Drift. Self-taught. I learned to code from the three programming books Luma has in the archive. Two of them disagree with each other. It builds character.\""
+          ],
+          "effects": { "setFlag": "met_ayo", "friendship": { "id": "ayo_drift", "delta": 3 } }
+        }
+      }
+    },
+    {
+      "id": "ayo_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"When the tower's fully stable, I want to push my glider telemetry through it. Real data! From the sky! Can I be your first intern? I accept payment in cloud cotton.\""
+          ],
+          "choices": [
+            {
+              "text": "Hand over some cloud cotton.",
+              "conditions": { "hasItem": { "id": "cloud_cotton", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "cloud_cotton", "qty": 1 }],
+                "friendship": { "id": "ayo_drift", "delta": 6 }
+              },
+              "next": "gift"
+            },
+            { "text": "\"Keep both feet on the ground, Ayo.\"" }
+          ]
+        },
+        "gift": {
+          "lines": ["\"Real cloud cotton! This is going straight into the shock absorbers. You're my favorite boss. Founder. Friend. FOUNDER-FRIEND.\""]
+        }
+      }
+    }
+  ],
+
+  "orin_moss": [
+    {
+      "id": "orin_intro",
+      "conditions": { "notFlag": "met_orin" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "The ranger doesn't look up from the campfire for a long moment. When he does, his nod is small but real.",
+            "\"Orin. I walk the old line — the cable route from the tower, through this valley, over the far ridge. Kept the corridor clear for eleven years, in case someone ever lit it up again.\"",
+            "\"Rule of the valley: take what regrows, leave what sings, and sit down if a spirit sits near you. They mean it as a compliment.\""
+          ],
+          "effects": { "setFlag": "met_orin", "friendship": { "id": "orin_moss", "delta": 3 } }
+        }
+      }
+    },
+    {
+      "id": "orin_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"The grass has been calmer since you started coming around. The Echoes trust the line more when someone's actually using it. Eleven years I kept that corridor clear. Nice to have a reason.\""
+          ],
+          "choices": [
+            {
+              "text": "Give him a clump of glow moss.",
+              "conditions": { "hasItem": { "id": "glow_moss", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "glow_moss", "qty": 1 }],
+                "friendship": { "id": "orin_moss", "delta": 6 }
+              },
+              "next": "gift"
+            },
+            { "text": "\"I'll keep listening.\"" }
+          ]
+        },
+        "gift": {
+          "lines": ["\"Glow moss. Reading light that doesn't scare the night spirits. ...Thank you. Most people bring me jerky.\""]
+        }
+      }
+    }
+  ],
+
+  "piproot": [
+    {
+      "id": "piproot_calm",
+      "conditions": {
+        "questAt": { "quest": "ch1_silent_waylight", "step": 5 },
+        "hasItem": { "id": "lost_seed", "qty": 3 }
+      },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "You open your hands. Three seeds glow between your palms like tiny status lights, all green.",
+            "Piproot goes completely still. Then it bounces — once, twice, a dozen times — and the gray washes out of its leaves in a single happy shiver.",
+            "Your lantern translates the burst of chiming: gratitude, green things, and a solemn promise to guard your 'signal garden' forever. Issue closed."
+          ],
+          "effects": {
+            "takeItems": [{ "id": "lost_seed", "qty": 3 }],
+            "calmEcho": "piproot",
+            "echoBond": { "id": "piproot", "delta": 5 }
+          }
+        }
+      }
+    },
+    {
+      "id": "piproot_waiting",
+      "conditions": { "questAt": { "quest": "ch1_silent_waylight", "step": 4 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "Piproot peeks at your empty hands, then at the meadow, then back at your hands.",
+            "The lantern hums a small, hopeful note: *three*. There were three."
+          ]
+        }
+      }
+    },
+    {
+      "id": "piproot_meet",
+      "conditions": { "questAt": { "quest": "ch1_silent_waylight", "step": 3 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "The little Echo is gray-leafed and trembling, tucked against the old cable route like it's trying to be a stone.",
+            "Your lantern warms in your hand and the shivering chimes become feeling: a storm, a scattering, seeds torn from the safe soil where the signal used to hum.",
+            "It looks up at you — really looks — and the chime turns into a question. Will you help?"
+          ],
+          "next": "b"
+        },
+        "b": {
+          "lines": [
+            "Somewhere nearby, three faint lights answer from the deep grass.",
+            "Piproot's leaf-ears swivel toward them, then back to you. Its first bug report, filed entirely in chimes."
+          ]
+        }
+      }
+    },
+    {
+      "id": "piproot_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "Piproot pops out of the grass and orbits your ankles once, chiming brightly.",
+            "The lantern translates roughly to: friend-friend-friend, and also, have you seen this excellent beetle?"
+          ],
+          "choices": [
+            {
+              "text": "Offer a moon petal.",
+              "conditions": { "hasItem": { "id": "moon_petals", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "moon_petals", "qty": 1 }],
+                "echoBond": { "id": "piproot", "delta": 4 }
+              },
+              "next": "gift"
+            },
+            { "text": "Pat the air near its leaves (it counts)." }
+          ]
+        },
+        "gift": {
+          "lines": [
+            "Piproot cradles the petal like it's made of moonlight — which, to be fair, it slightly is — and buries it with ceremonial seriousness.",
+            "A patch of soil nearby shimmers. Something useful is cached there now. Piproot winks. Probably."
+          ]
+        }
+      }
+    }
+  ],
+
+  "rillet": [
+    {
+      "id": "rillet_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "A droplet-shaped Echo surfaces with a *plip*, fin-crest catching the light.",
+            "Your lantern translates the bubbling: the river tastes like snow today, your reflection is funnier than most, and it once carried the village's packets downstream when the tower was young."
+          ],
+          "choices": [
+            {
+              "text": "Offer a river shell.",
+              "conditions": { "hasItem": { "id": "river_shell", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "river_shell", "qty": 1 }],
+                "echoBond": { "id": "rillet", "delta": 4 }
+              },
+              "next": "gift"
+            },
+            { "text": "Skip a pebble for it." }
+          ]
+        },
+        "gift": {
+          "lines": [
+            "Rillet spins the shell on its nose, drops it, catches it, and beams at you.",
+            "The water near the banks stirs with silver shapes. The fish here like Rillet's friends."
+          ]
+        }
+      }
+    }
+  ],
+
+  "emberkin": [
+    {
+      "id": "emberkin_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "A warm round Echo dozes against the café's chimney, its little flame-wisp puffing in time with its snores.",
+            "It opens one eye at you. The lantern translates the sleepy crackle: mmm. the laptop person. warm hands. long hours. approve."
+          ],
+          "choices": [
+            {
+              "text": "Share some hearth stew.",
+              "conditions": { "hasItem": { "id": "veggie_stew", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "veggie_stew", "qty": 1 }],
+                "echoBond": { "id": "emberkin", "delta": 4 }
+              },
+              "next": "gift"
+            },
+            { "text": "Warm your hands nearby." }
+          ]
+        },
+        "gift": {
+          "lines": [
+            "Emberkin inhales the stew's steam like a connoisseur, and its flame-wisp turns briefly gold.",
+            "The whole café corner feels five degrees cozier. Your best commits will happen at this table. It has decided."
+          ]
+        }
+      }
+    }
+  ]
+}

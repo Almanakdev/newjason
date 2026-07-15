@@ -1,0 +1,85 @@
+[
+  {
+    "id": "ch1_silent_waylight",
+    "title": "The Silent Signal",
+    "description": "Kiriko Vale's Signal Tower has been dark for years — the village fell off every map, and no startup ships from a place the internet forgot. Mira Vale suspects a programmer with a good lantern might be exactly the fix.",
+    "type": "main",
+    "giver": "mira_vale",
+    "steps": [
+      {
+        "id": "meet_mira",
+        "title": "Find your feet",
+        "hint": "Mira Vale waits by the dark Signal Tower at the plaza's heart.",
+        "objectives": [
+          { "type": "talk", "target": "mira_vale", "label": "Talk to Mira Vale" }
+        ],
+        "onComplete": {
+          "giveItems": [{ "id": "spirit_lantern", "qty": 1 }],
+          "friendship": { "id": "mira_vale", "delta": 5 }
+        }
+      },
+      {
+        "id": "gather_fiber",
+        "title": "Gather wild fiber",
+        "hint": "Pale tufts grow along the eastern road toward Whispergrass Valley. Three strands braid into a respectable patch cable.",
+        "objectives": [
+          { "type": "gather", "item": "wild_fiber", "count": 3, "label": "Collect wild fiber" }
+        ]
+      },
+      {
+        "id": "craft_lens",
+        "title": "Weave a Signal Lens",
+        "hint": "Use the crafting pavilion — the open workbench east of the plaza. You'll also need two smooth stones for the housing.",
+        "objectives": [
+          { "type": "craft", "item": "lantern_lens", "label": "Craft a Signal Lens" }
+        ]
+      },
+      {
+        "id": "meet_piproot",
+        "title": "A bug in the line",
+        "hint": "Your lantern keeps flagging something small and distressed along the old fiber route in the Whispergrass meadow.",
+        "objectives": [
+          { "type": "talk", "target": "piproot", "label": "Listen to the meadow Echo" }
+        ],
+        "onComplete": { "setFlag": "seeds_scattered" }
+      },
+      {
+        "id": "find_seeds",
+        "title": "Recover Piproot's seeds",
+        "hint": "Three glowing seeds lie scattered in the deep grass near Piproot.",
+        "objectives": [
+          { "type": "gather", "item": "lost_seed", "count": 3, "label": "Gather the lost seeds" }
+        ]
+      },
+      {
+        "id": "calm_piproot",
+        "title": "Return to Piproot",
+        "hint": "Close the little Echo's issue: bring its seeds home.",
+        "objectives": [
+          { "type": "calmEcho", "target": "piproot", "label": "Soothe Piproot" }
+        ]
+      },
+      {
+        "id": "restore_waylight",
+        "title": "Bring the tower online",
+        "hint": "Mount your Signal Lens in the tower's cradle. Deploy gently.",
+        "objectives": [
+          { "type": "restoreWaylight", "target": "village_waylight", "label": "Restore the Signal Tower" }
+        ]
+      },
+      {
+        "id": "celebrate",
+        "title": "Show Mira the uptime",
+        "hint": "She'll want to see the beam with her own eyes.",
+        "objectives": [
+          { "type": "talk", "target": "mira_vale", "label": "Tell Mira the signal is live" }
+        ],
+        "onComplete": {
+          "giveItems": [{ "id": "fishing_rod", "qty": 1 }],
+          "friendship": { "id": "mira_vale", "delta": 10 },
+          "setFlag": "chapter1_done"
+        }
+      }
+    ]
+  }
+]

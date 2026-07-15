@@ -1,0 +1,84 @@
+[
+  {
+    "id": "side_tavi_stew",
+    "title": "Coworking Fuel",
+    "description": "Tavi Ember wants her clay oven running again — the Ember Kettle is your de facto startup HQ, and a startup runs on stew. The storms washed her clay stores into the pond.",
+    "type": "side",
+    "giver": "tavi_ember",
+    "steps": [
+      {
+        "id": "gather_clay",
+        "title": "Dig up pond clay",
+        "hint": "Soft red mounds sit along the pond's sandy edge.",
+        "objectives": [
+          { "type": "gather", "item": "clay", "count": 2, "label": "Gather pond clay" }
+        ]
+      },
+      {
+        "id": "return_tavi",
+        "title": "Bring the clay to Tavi",
+        "objectives": [
+          { "type": "talk", "target": "tavi_ember", "label": "Deliver the clay to Tavi" }
+        ],
+        "onComplete": {
+          "takeItems": [{ "id": "clay", "qty": 2 }],
+          "giveItems": [{ "id": "veggie_stew", "qty": 2 }],
+          "friendship": { "id": "tavi_ember", "delta": 8 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "side_sera_song",
+    "title": "The Launch Jingle",
+    "description": "Sera Bell insists your startup needs a launch sound — 'every great product makes a noise when it arrives' — and she swears the river has the best backing vocals in the Kiriko mountains.",
+    "type": "side",
+    "giver": "sera_bell",
+    "steps": [
+      {
+        "id": "river_shells",
+        "title": "Collect river shells",
+        "hint": "Pearly spirals rest on the river banks in Whispergrass Valley.",
+        "objectives": [
+          { "type": "gather", "item": "river_shell", "count": 2, "label": "Collect river shells" }
+        ]
+      },
+      {
+        "id": "return_sera",
+        "title": "Bring the shells to Sera",
+        "objectives": [
+          { "type": "talk", "target": "sera_bell", "label": "Give the shells to Sera" }
+        ],
+        "onComplete": {
+          "takeItems": [{ "id": "river_shell", "qty": 2 }],
+          "friendship": { "id": "sera_bell", "delta": 8 },
+          "giveItems": [{ "id": "berry_tea", "qty": 1 }]
+        }
+      }
+    ]
+  },
+  {
+    "id": "side_beta_circle",
+    "title": "The First Three Users",
+    "description": "Every startup begins with three people who believe you. Mira's advice: stop polishing the pitch deck and go talk to the village.",
+    "type": "side",
+    "giver": "mira_vale",
+    "steps": [
+      {
+        "id": "pitch",
+        "title": "Pitch your startup around the village",
+        "hint": "Tavi holds court at the café, Ayo tinkers by the garden, Luma haunts the archive at Echo Haven.",
+        "objectives": [
+          { "type": "talk", "target": "tavi_ember", "label": "Pitch to Tavi" },
+          { "type": "talk", "target": "ayo_drift", "label": "Pitch to Ayo" },
+          { "type": "talk", "target": "luma_fen", "label": "Pitch to Luma" }
+        ],
+        "onComplete": {
+          "giveItems": [{ "id": "berry_tea", "qty": 2 }],
+          "setFlag": "startup_pitched",
+          "friendship": { "id": "mira_vale", "delta": 4 }
+        }
+      }
+    ]
+  }
+]

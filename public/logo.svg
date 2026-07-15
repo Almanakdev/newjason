@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Jason Show">
+  <title>Jason Show</title>
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbc4cf"/>
+      <stop offset="1" stop-color="#f4a6b6"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef1ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- blue plate -->
+  <rect width="512" height="512" rx="96" fill="#1734cf"/>
+
+  <!-- action marks, upper right -->
+  <g fill="#e5202e">
+    <rect x="396" y="74"  width="20" height="62" rx="10" transform="rotate(18 406 105)"/>
+    <rect x="432" y="106" width="20" height="58" rx="10" transform="rotate(48 442 135)"/>
+    <rect x="440" y="152" width="20" height="52" rx="10" transform="rotate(78 450 178)"/>
+  </g>
+
+  <!-- window frame -->
+  <rect x="86" y="118" width="300" height="268" rx="42" fill="url(#frame)"/>
+
+  <!-- title bar dots -->
+  <circle cx="130" cy="158" r="11" fill="#e5202e"/>
+  <circle cx="162" cy="158" r="11" fill="#f2a3bc"/>
+  <circle cx="194" cy="158" r="11" fill="#f2a3bc"/>
+
+  <!-- screen -->
+  <rect x="104" y="184" width="264" height="186" rx="26" fill="url(#screen)"/>
+
+  <!-- braces + コード -->
+  <g fill="none" stroke="#e5202e" stroke-width="19" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M164 216 q-20 0 -20 26 v14 q0 21 -18 21 q18 0 18 21 v14 q0 26 20 26"/>
+    <path d="M308 216 q20 0 20 26 v14 q0 21 18 21 q-18 0 -18 21 v14 q0 26 -20 26"/>
+  </g>
+  <text x="236" y="296" fill="#e5202e"
+        font-family="'Zen Kaku Gothic New','Yu Gothic','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif"
+        font-size="60" font-weight="700" text-anchor="middle" dominant-baseline="central"
+        letter-spacing="2">コード</text>
+</svg>

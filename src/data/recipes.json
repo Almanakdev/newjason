@@ -1,0 +1,88 @@
+[
+  {
+    "id": "recipe_lantern_lens",
+    "result": "lantern_lens",
+    "qty": 1,
+    "ingredients": [
+      { "item": "wild_fiber", "qty": 3 },
+      { "item": "smooth_stone", "qty": 2 }
+    ],
+    "category": "waylight",
+    "station": "workbench"
+  },
+  {
+    "id": "recipe_fishing_rod",
+    "result": "fishing_rod",
+    "qty": 1,
+    "ingredients": [
+      { "item": "wood", "qty": 3 },
+      { "item": "wild_fiber", "qty": 2 }
+    ],
+    "category": "tools",
+    "station": "workbench"
+  },
+  {
+    "id": "recipe_repair_hammer",
+    "result": "repair_hammer",
+    "qty": 1,
+    "ingredients": [
+      { "item": "wood", "qty": 2 },
+      { "item": "smooth_stone", "qty": 2 }
+    ],
+    "category": "tools",
+    "station": "workbench"
+  },
+  {
+    "id": "recipe_gathering_gloves",
+    "result": "gathering_gloves",
+    "qty": 1,
+    "ingredients": [
+      { "item": "wild_fiber", "qty": 4 }
+    ],
+    "category": "tools",
+    "station": "workbench"
+  },
+  {
+    "id": "recipe_veggie_stew",
+    "result": "veggie_stew",
+    "qty": 2,
+    "ingredients": [
+      { "item": "wild_fiber", "qty": 2 },
+      { "item": "moon_petals", "qty": 1 }
+    ],
+    "category": "food",
+    "station": "workbench"
+  },
+  {
+    "id": "recipe_berry_tea",
+    "result": "berry_tea",
+    "qty": 2,
+    "ingredients": [
+      { "item": "moon_petals", "qty": 2 }
+    ],
+    "category": "food",
+    "station": "workbench"
+  },
+  {
+    "id": "recipe_woven_charm",
+    "result": "woven_charm",
+    "qty": 1,
+    "ingredients": [
+      { "item": "wild_fiber", "qty": 2 },
+      { "item": "river_shell", "qty": 1 }
+    ],
+    "category": "gifts",
+    "station": "workbench"
+  },
+  {
+    "id": "recipe_flower_wreath",
+    "result": "flower_wreath",
+    "qty": 1,
+    "ingredients": [
+      { "item": "moon_petals", "qty": 2 },
+      { "item": "wild_fiber", "qty": 1 }
+    ],
+    "category": "gifts",
+    "station": "workbench"
+  }
+]

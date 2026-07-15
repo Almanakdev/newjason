@@ -1,0 +1,31 @@
+{
+  "name": "kindred-peaks",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Kindred Peaks — A World Between Skies. A cozy browser-native 3D open-world life sim.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src",
+    "format": "prettier --write \"src/**/*.{ts,css,json}\""
+  },
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "^0.14.0",
+    "howler": "^2.2.4",
+    "socket.io-client": "^4.7.5",
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/howler": "^2.2.11",
+    "@types/three": "^0.169.0",
+    "eslint": "^9.9.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.2.0",
+    "vite": "^5.4.2"
+  }
+}
