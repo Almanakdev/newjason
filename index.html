@@ -129,6 +129,8 @@
         color: var(--text-dim); word-break: break-all; max-width: 92vw;
       }
       .ca-line:empty { display: none; }
+      .ca-line a { color: var(--pink-soft); text-decoration: underline; text-underline-offset: 2px; }
+      .ca-line a:hover { color: var(--pink); }
       button.btn { font-family: inherit; }
 
       /* ---------- PILLARS ---------- */
@@ -485,9 +487,8 @@
       links.addEventListener('click', () => links.classList.remove('open'));
 
       // ---------- Buy Coin / Copy CA ----------
-      // TODO: fill these two in.
-      const CONTRACT_ADDRESS = ''; // e.g. '0xabc123...' — shown under the hero and copied on click
-      const BUY_URL = ''; // e.g. your Uniswap / Raydium / pump.fun link
+      const CONTRACT_ADDRESS = 'EKBttkY25sZrNvDBHAuUJr2YuY1nZTejvkwc3fhppump';
+      const BUY_URL = 'https://pump.fun/coin/EKBttkY25sZrNvDBHAuUJr2YuY1nZTejvkwc3fhppump';
 
       const buyCoin = document.getElementById('buyCoin');
       if (BUY_URL) {
@@ -503,7 +504,14 @@
       const caLine = document.getElementById('caLine');
 
       if (CONTRACT_ADDRESS) {
-        caLine.textContent = CONTRACT_ADDRESS;
+        // Show the CA under the hero as a link to the coin page.
+        caLine.innerHTML = '';
+        const caLink = document.createElement('a');
+        caLink.href = BUY_URL || '#';
+        caLink.target = '_blank';
+        caLink.rel = 'noopener noreferrer';
+        caLink.textContent = CONTRACT_ADDRESS;
+        caLine.append(document.createTextNode('CA: '), caLink);
       } else {
         copyBtn.disabled = true;
         copyBtn.style.opacity = '0.5';
