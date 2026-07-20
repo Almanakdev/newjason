@@ -132,8 +132,10 @@ export class SaveManager {
       updatedAt: Date.now(),
       playerName,
       appearance,
-      position: { x: -2, y: 3, z: 16 },
-      yaw: Math.PI,
+      // Arrive in the Neon Ward, on the south approach looking up the avenue
+      // into the scramble crossing and its screen towers.
+      position: { x: -100, y: 3, z: -16 },
+      yaw: 0,
       timeOfDay: GameConfig.startTimeOfDay,
       day: 1,
       inventory: {},

@@ -41,6 +41,32 @@ export const PATH_POINTS: [number, number][] = [
 
 const VILLAGE = { x: 0, z: 0, r: 40, blend: 26, h: 2.0 };
 const VALLEY = { x: 150, z: 80, r: 58, blend: 34, h: 2.7, strength: 0.72 };
+/**
+ * Urban district (Shibuya-style). Fully flat, at the same height as the
+ * village so the two plateaus blend into one continuous walkable surface,
+ * joined by a connector avenue.
+ */
+export const CITY = { x: -100, z: 10, r: 40, blend: 20, h: 2.0 };
+
+/** Concrete roads inside the city + the avenue linking it to the village. */
+export const CITY_ROADS: [number, number][][] = [
+  // main north–south avenue through the scramble crossing
+  [
+    [-100, -30],
+    [-100, 50],
+  ],
+  // main east–west avenue
+  [
+    [-140, 10],
+    [-60, 10],
+  ],
+  // connector from the city back to the village plaza
+  [
+    [-62, 10],
+    [-34, 6],
+    [-8, 1],
+  ],
+];
 
 function baseHills(x: number, z: number): number {
   return (
@@ -73,6 +99,11 @@ export function terrainHeight(x: number, z: number): number {
   h = flattenDisc(h, x, z, VALLEY.x, VALLEY.z, VALLEY.r, VALLEY.blend, VALLEY.h, VALLEY.strength);
   // Village plateau (fully flat social hub).
   h = flattenDisc(h, x, z, VILLAGE.x, VILLAGE.z, VILLAGE.r, VILLAGE.blend, VILLAGE.h, 1);
+  // City district — fully flat, same height as the village.
+  h = flattenDisc(h, x, z, CITY.x, CITY.z, CITY.r, CITY.blend, CITY.h, 1);
+  // Flatten the connector avenue so the walk between them stays level.
+  const dConnector = distToPolyline(x, z, CITY_ROADS[2]);
+  h = lerp(h, VILLAGE.h, (1 - smoothstep(4, 9, dConnector)));
   // River bed depression.
   const dRiver = distToPolyline(x, z, RIVER_POINTS);
   h -= 1.7 * (1 - smoothstep(3.2, 7, dRiver));
@@ -87,7 +118,10 @@ export function terrainHeight(x: number, z: number): number {
 
 /** Footstep surface under a world position. */
 export function terrainSurface(x: number, z: number): 'stone' | 'grass' {
-  return Math.hypot(x - VILLAGE.x, z - VILLAGE.z) < 20 ? 'stone' : 'grass';
+  if (Math.hypot(x - VILLAGE.x, z - VILLAGE.z) < 20) return 'stone';
+  // The whole city district is paved.
+  if (Math.hypot(x - CITY.x, z - CITY.z) < CITY.r) return 'stone';
+  return 'grass';
 }
 
 /** Is this point on open ground (not water, not plaza, not path)? */
@@ -97,6 +131,7 @@ export function isOpenMeadow(x: number, z: number): boolean {
   if (distToPolyline(x, z, PATH_POINTS) < 3.4) return false;
   if (Math.hypot(x, z) < 30) return false; // built-up village core
   if (Math.abs(x) < 12 && z < -8 && z > -42) return false; // residential lane
+  if (Math.hypot(x - CITY.x, z - CITY.z) < CITY.r + 4) return false; // paved city
   return true;
 }
 
@@ -125,6 +160,8 @@ export function buildTerrain(): TerrainBuildResult {
   const sand = new THREE.Color('#dbc9a0');
   const rock = new THREE.Color('#95a0ab');
   const snow = new THREE.Color('#eef3f7');
+  const asphalt = new THREE.Color('#6d727c');
+  const roadLine = new THREE.Color('#c9cdd4');
 
   for (let i = 0; i < pos.count; i++) {
     const x = pos.getX(i);
@@ -147,9 +184,19 @@ export function buildTerrain(): TerrainBuildResult {
     // the residential lane.
     const dPath = Math.min(
       distToPolyline(x, z, PATH_POINTS),
-      distToPolyline(x, z, LANE_POINTS)
+      distToPolyline(x, z, LANE_POINTS),
+      distToPolyline(x, z, CITY_ROADS[2])
     );
     c.lerp(walkway, (1 - smoothstep(2.4, 4.6, dPath)) * 0.92);
+
+    // City district: asphalt slab with pale lane markings on the avenues.
+    const dCity = Math.hypot(x - CITY.x, z - CITY.z);
+    c.lerp(asphalt, 1 - smoothstep(CITY.r - 3, CITY.r + 7, dCity));
+    const dRoad = Math.min(
+      distToPolyline(x, z, CITY_ROADS[0]),
+      distToPolyline(x, z, CITY_ROADS[1])
+    );
+    if (dCity < CITY.r) c.lerp(roadLine, (1 - smoothstep(0.5, 1.1, dRoad)) * 0.7);
 
     // Shores.
     const dPond = Math.hypot(x - POND.x, z - POND.z);

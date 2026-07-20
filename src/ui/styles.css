@@ -457,11 +457,55 @@ html, body {
 }
 .kp-chat-input::placeholder { color: rgba(92, 106, 133, 0.6); }
 @media (max-width: 720px) {
+  /* Chat is hidden on phones to leave room for the controls (it's ambient
+     flavour, not essential). Everything else is shrunk and de-collided. */
   .kp-chat { display: none; }
-  .kp-minimap { width: 104px; height: 104px; }
-  /* minimap is shorter here, so pull the stack back up under it */
-  .kp-hud-clock { top: 130px; }
-  .kp-notify-stack { top: 178px; }
+
+  .kp-minimap { width: 96px; height: 96px; top: 10px; right: 10px; }
+  .kp-minimap-key { width: 18px; height: 18px; font-size: 10px; }
+
+  .kp-statusbar { top: 10px; left: 10px; gap: 6px; }
+  .kp-status-home { padding: 7px 11px; font-size: 11px; }
+  .kp-status-home span:not(.ico) { display: none; } /* icon-only back button */
+  .kp-status-wallet { padding: 6px 9px; font-size: 10px; }
+  .kp-status-wallet .addr { display: none; } /* just the dot + label */
+
+  .kp-hud-objective { top: 50px; left: 10px; min-width: 0; max-width: 64vw; font-size: 12px; padding: 8px 11px; }
+  .kp-hud-objective::before { font-size: 8px; }
+  .kp-hud-clock { top: 116px; right: 10px; font-size: 12px; padding: 6px 12px; }
+  .kp-notify-stack { top: 156px; right: 10px; }
+  .kp-prompt { bottom: 200px; }
+}
+
+@media (max-width: 480px) {
+  .kp-minimap { width: 80px; height: 80px; }
+  .kp-touch-buttons { grid-template-columns: repeat(3, 52px); gap: 8px; }
+  .kp-touch-btn { width: 52px; height: 52px; font-size: 19px; }
+  .kp-joystick { width: 112px; height: 112px; }
+  .kp-joystick-knob { width: 48px; height: 48px; }
+  .kp-hud-objective { max-width: 58vw; }
+  .kp-hud-clock { top: 100px; }
+  .kp-notify-stack { top: 138px; }
+}
+
+/* Landscape phones are short — lift the bottom controls a touch and slim the
+   objective panel so it doesn't eat the play area. */
+@media (max-height: 480px) and (orientation: landscape) {
+  .kp-hud-objective { max-width: 40vw; font-size: 11px; }
+  .kp-joystick { bottom: max(14px, env(safe-area-inset-bottom)); }
+  .kp-touch-buttons { bottom: max(14px, env(safe-area-inset-bottom)); }
+}
+
+/* Pre-game screens on phones: let tall content scroll rather than clip, and
+   shrink the wallet gate to fit narrow widths. */
+@media (max-width: 720px) {
+  .kp-title-screen { align-items: flex-start; justify-content: flex-start; overflow-y: auto; }
+  .kp-title-card { margin: auto; padding: 40px 16px; width: 100%; }
+  .kp-title-card::before { width: 64px; height: 64px; margin-bottom: 14px; }
+  .kp-wallet { min-width: 0; width: min(440px, 90vw); }
+  .kp-wallet-panel { width: min(400px, 92vw); }
+  .kp-title-version { font-size: 10px; bottom: 8px; right: 10px; }
+  .kp-cinematic .line { font-size: clamp(16px, 4.4vw, 22px); }
 }
 
 /* ------------------------------- Journal ------------------------------ */
@@ -566,15 +610,16 @@ html, body {
   position: absolute;
   right: max(14px, env(safe-area-inset-right));
   bottom: max(24px, env(safe-area-inset-bottom));
-  display: grid; grid-template-columns: repeat(2, 62px); gap: 10px;
+  display: grid; grid-template-columns: repeat(3, 58px); gap: 9px;
 }
 .kp-touch-btn {
-  width: 62px; height: 62px; border-radius: 50%;
+  width: 58px; height: 58px; border-radius: 50%;
   background: rgba(250, 246, 236, 0.85);
   border: 3px solid var(--kp-ink);
-  font-size: 22px; font-weight: 800; color: var(--kp-ink);
+  font-size: 21px; font-weight: 800; color: var(--kp-ink);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--kp-font);
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
 }
 .kp-touch-btn:active { background: var(--kp-accent-soft); }
 .kp-look-area { position: absolute; right: 0; top: 0; width: 55%; height: 100%; }

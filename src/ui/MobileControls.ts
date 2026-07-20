@@ -81,9 +81,12 @@ export class MobileControls {
       buttons.appendChild(b);
       return b;
     };
+    // Two rows of three. Interact sits bottom-right, nearest the thumb.
+    mkBtn('🗺', 'map', 'Map');
     mkBtn('🎒', 'inventory', 'Inventory');
-    mkBtn('⤴', 'jump', 'Jump');
+    mkBtn('☰', 'menu', 'Menu');
     mkBtn('🙂', 'emote', 'Emotes');
+    mkBtn('⤴', 'jump', 'Jump');
     mkBtn('E', 'interact', 'Interact');
 
     this.els.push(look, this.joyBase, buttons);

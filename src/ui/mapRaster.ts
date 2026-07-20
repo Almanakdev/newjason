@@ -6,7 +6,7 @@
  * consumers draw from the same bitmap.
  */
 
-import { terrainHeight, POND, RIVER_POINTS, PATH_POINTS } from '../world/Terrain';
+import { terrainHeight, POND, RIVER_POINTS, PATH_POINTS, CITY, CITY_ROADS } from '../world/Terrain';
 import { distToPolyline } from '../utils/math';
 import { POI } from '../utils/constants';
 
@@ -26,12 +26,14 @@ export const MARKERS: MapMarker[] = [
   { x: POI.valleyMeadow.x, z: POI.valleyMeadow.z, icon: '🌾', label: 'Whispergrass' },
   { x: POI.orinCamp.x, z: POI.orinCamp.z, icon: '⛺', label: 'Ranger camp' },
   { x: POI.valleyShrine.x, z: POI.valleyShrine.z, icon: '⛩', label: 'Shrine' },
+  { x: POI.cityCrossing.x, z: POI.cityCrossing.z, icon: '🏙', label: 'Neon Ward' },
 ];
 
-export const VIEW = { minX: -70, maxX: 210, minZ: -70, maxZ: 150 };
+// Widened west (minX) so the city district at x≈-100 falls inside the map.
+export const VIEW = { minX: -150, maxX: 210, minZ: -70, maxZ: 150 };
 
-/** Raster width in px. 4px per world metre across the 280m span. */
-const RASTER_W = 1120;
+/** Raster width in px. 4px per world metre across the 360m span. */
+const RASTER_W = 1440;
 const RASTER_H = Math.round((RASTER_W * (VIEW.maxZ - VIEW.minZ)) / (VIEW.maxX - VIEW.minX));
 
 /** World metres -> raster pixels. */
@@ -73,6 +75,16 @@ export function worldRaster(): HTMLCanvasElement {
       if (distToPolyline(x, z, RIVER_POINTS) < 4) { r = 95; g = 165; b = 205; }
       if (y > 13) { r = 150; g = 158; b = 168; }
       if (y > 24) { r = 235; g = 240; b = 245; }
+      // City district: asphalt with pale avenue lines.
+      const dCity = Math.hypot(x - CITY.x, z - CITY.z);
+      if (dCity < CITY.r) {
+        r = 109; g = 114; b = 124;
+        const dRoad = Math.min(
+          distToPolyline(x, z, CITY_ROADS[0]),
+          distToPolyline(x, z, CITY_ROADS[1])
+        );
+        if (dRoad < 1.6) { r = 201; g = 205; b = 212; }
+      }
       const idx = (py * RASTER_W + px) * 4;
       img.data[idx] = r;
       img.data[idx + 1] = g;

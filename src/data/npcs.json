@@ -133,5 +133,72 @@
       { "start": 20, "end": 24, "x": 133, "z": 97, "activity": "sit" },
       { "start": 0, "end": 6, "x": 132, "z": 95, "activity": "sleep" }
     ]
+  },
+  {
+    "id": "kenji_arai",
+    "name": "Kenji \"K2\" Arai",
+    "role": "Street Coder — Neon Ward",
+    "region": "city",
+    "dialogueKey": "kenji_arai",
+    "giftPreference": "berry_tea",
+    "home": { "x": -100, "z": -6 },
+    "appearance": { "bodyType": 1, "skinTone": 2, "faceShape": 0, "eyes": 1, "brows": 0, "mouth": 0, "hairstyle": 3, "hairColor": 8, "jacket": 5, "shirt": 3, "pants": 9, "shoes": 11, "scarf": 0, "hat": 1, "backpack": 1, "gloves": 0, "pin": 2 },
+    "schedule": [
+      { "start": 7, "end": 12, "x": -98, "z": -2, "activity": "idle" },
+      { "start": 12, "end": 15, "x": -85, "z": 6, "activity": "sit" },
+      { "start": 15, "end": 21, "x": -100, "z": 2, "activity": "wander" },
+      { "start": 21, "end": 24, "x": -100, "z": -6, "activity": "idle" },
+      { "start": 0, "end": 7, "x": -100, "z": -6, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "yua_sato",
+    "name": "Yua Sato",
+    "role": "Konbini Clerk — 24H",
+    "region": "city",
+    "dialogueKey": "yua_sato",
+    "giftPreference": "moon_petals",
+    "home": { "x": -85, "z": 8 },
+    "appearance": { "bodyType": 2, "skinTone": 1, "faceShape": 1, "eyes": 0, "brows": 0, "mouth": 2, "hairstyle": 2, "hairColor": 0, "jacket": 2, "shirt": 2, "pants": 8, "shoes": 8, "scarf": 0, "hat": 2, "backpack": 0, "gloves": 1, "pin": 0 },
+    "schedule": [
+      { "start": 6, "end": 14, "x": -85, "z": 6, "activity": "work" },
+      { "start": 14, "end": 16, "x": -100, "z": 2, "activity": "idle" },
+      { "start": 16, "end": 23, "x": -85, "z": 6, "activity": "work" },
+      { "start": 23, "end": 6, "x": -85, "z": 10, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "rei_tanaka",
+    "name": "Rei \"Neon\" Tanaka",
+    "role": "Night DJ & Sound Designer",
+    "region": "city",
+    "dialogueKey": "rei_tanaka",
+    "giftPreference": "flower_wreath",
+    "home": { "x": -82, "z": 26 },
+    "appearance": { "bodyType": 1, "skinTone": 3, "faceShape": 2, "eyes": 3, "brows": 1, "mouth": 1, "hairstyle": 3, "hairColor": 5, "jacket": 4, "shirt": 9, "pants": 10, "shoes": 11, "scarf": 1, "hat": 0, "backpack": 0, "gloves": 1, "pin": 1 },
+    "schedule": [
+      { "start": 10, "end": 14, "x": -82, "z": 24, "activity": "idle" },
+      { "start": 14, "end": 18, "x": -100, "z": 4, "activity": "wander" },
+      { "start": 18, "end": 24, "x": -82, "z": 26, "activity": "work" },
+      { "start": 0, "end": 4, "x": -82, "z": 26, "activity": "work" },
+      { "start": 4, "end": 10, "x": -84, "z": 28, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "mei_fujimoto",
+    "name": "Mei Fujimoto",
+    "role": "Streamer & Beta Tester",
+    "region": "city",
+    "dialogueKey": "mei_fujimoto",
+    "giftPreference": "cloud_cotton",
+    "home": { "x": -70, "z": 12 },
+    "appearance": { "bodyType": 0, "skinTone": 2, "faceShape": 0, "eyes": 2, "brows": 0, "mouth": 2, "hairstyle": 1, "hairColor": 9, "jacket": 3, "shirt": 8, "pants": 8, "shoes": 8, "scarf": 0, "hat": 1, "backpack": 2, "gloves": 0, "pin": 2 },
+    "schedule": [
+      { "start": 8, "end": 12, "x": -70, "z": 12, "activity": "idle" },
+      { "start": 12, "end": 16, "x": -88, "z": 14, "activity": "wander" },
+      { "start": 16, "end": 22, "x": -70, "z": 12, "activity": "sit" },
+      { "start": 22, "end": 24, "x": -72, "z": 12, "activity": "idle" },
+      { "start": 0, "end": 8, "x": -70, "z": 12, "activity": "sleep" }
+    ]
   }
 ]

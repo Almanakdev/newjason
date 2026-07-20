@@ -758,5 +758,163 @@
         }
       }
     }
+  ],
+
+  "kenji_arai": [
+    {
+      "id": "kenji_intro",
+      "conditions": { "notFlag": "met_kenji" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "A guy in a hood is crouched on the crossing island, laptop balanced on his knees, screen reflecting pink neon back at him.",
+            "\"Yo. You're the one who walked in from the mountains, right? Word travels fast when the signal tower comes back online.\"",
+            "\"Kenji. K2 if you're typing. I ship from the street — best latency in the Ward is right here under the big screen. Don't ask about the rent.\""
+          ],
+          "effects": { "setFlag": "met_kenji", "friendship": { "id": "kenji_arai", "delta": 3 } },
+          "next": "b"
+        },
+        "b": {
+          "lines": [
+            "\"Whole district runs on the tower you lit. So technically I owe you uptime. Come find me if you ever need a second pair of eyes on your build.\""
+          ],
+          "choices": [
+            { "text": "\"What do you build out here?\"", "next": "work" },
+            { "text": "\"Nice to meet you, K2.\"" }
+          ]
+        },
+        "work": {
+          "lines": [
+            "\"Little tools. A crossing timer that actually tells the truth. A bot that DMs the konbini when the good onigiri restocks. Civic infrastructure, basically.\"",
+            "\"Startups are just neighbors solving neighbor problems with extra steps. You'll fit right in.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "kenji_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Push to main, touch grass, repeat. Except out here the grass is a sakura tree and the main branch is neon. Same energy.\"",
+            "\"Ward's looking sharp tonight. You did that, mountain kid.\""
+          ]
+        }
+      }
+    }
+  ],
+
+  "yua_sato": [
+    {
+      "id": "yua_intro",
+      "conditions": { "notFlag": "met_yua" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "The konbini doors chime as you pass. The clerk waves without looking up from restocking.",
+            "\"Irasshaimase — oh! New face. You're the founder everyone's tab is about. Welcome to the only shop in the Ward that never closes.\"",
+            "\"I'm Yua. Hot coffee's by the door, umbrellas are three-fifty, and yes, the tower coming back means my fridge finally holds temperature. Thank you for that, seriously.\""
+          ],
+          "effects": { "setFlag": "met_yua", "friendship": { "id": "yua_sato", "delta": 3 } }
+        }
+      }
+    },
+    {
+      "id": "yua_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Long day? There's a founder discount on the second coffee. Don't tell corporate — I am corporate, but still don't tell me.\"",
+            "\"Steady footsteps, steady shipping. You look like you're getting the hang of the city.\""
+          ]
+        }
+      }
+    }
+  ],
+
+  "rei_tanaka": [
+    {
+      "id": "rei_intro",
+      "conditions": { "notFlag": "met_rei" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "Bass leaks from a rooftop rig. A DJ leans over the railing, headphones around their neck, grinning down at the crossing.",
+            "\"There they are — the reason my speakers have clean power again. Rei. They call me Neon when the set's good, which is always.\"",
+            "\"I score this whole Ward. Sunset set when the screens flip warm, midnight set when they go electric. You gave me my night back.\""
+          ],
+          "effects": { "setFlag": "met_rei", "friendship": { "id": "rei_tanaka", "delta": 3 } },
+          "next": "b"
+        },
+        "b": {
+          "lines": [
+            "\"Stick around till the lamps kick on. The crossing hits different when the city's lit and the drums drop. That's the real Neon Ward.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "rei_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Feel that? Sub-bass and sakura. I've been chasing that exact vibe for years.\"",
+            "\"Come back after dark. Daytime's just soundcheck.\""
+          ]
+        }
+      }
+    }
+  ],
+
+  "mei_fujimoto": [
+    {
+      "id": "mei_intro",
+      "conditions": { "notFlag": "met_mei" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "A streamer spins her ring light toward you before you've even stopped walking. \"Chat, CHAT — it's the founder. The actual one.\"",
+            "\"Mei. I test builds and I stream the crashes, it's a whole genre. If your thing ships in the Ward, it ships past me first.\"",
+            "\"No pressure. Okay, some pressure. My viewers are merciless and I love them.\""
+          ],
+          "effects": { "setFlag": "met_mei", "friendship": { "id": "mei_fujimoto", "delta": 3 } },
+          "next": "b"
+        },
+        "b": {
+          "lines": [
+            "\"Give me something to break and I'll give you the best bug reports of your life. Timestamped. With reaction faces.\""
+          ],
+          "choices": [
+            { "text": "\"Deal. Break everything.\"", "effects": { "friendship": { "id": "mei_fujimoto", "delta": 2 } }, "next": "deal" },
+            { "text": "\"Maybe once it's stable.\"" }
+          ]
+        },
+        "deal": {
+          "lines": [
+            "\"YES. Chat, we're QA now. Someone clip that.\"",
+            "She's already three tabs deep. You've been adopted by the algorithm."
+          ]
+        }
+      }
+    },
+    {
+      "id": "mei_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Stream's live, don't look directly at the camera — okay you looked, they love you now, this is your life.\"",
+            "\"Ward's trending, by the way. Turns out 'coder rebuilds a city' is a great arc.\""
+          ]
+        }
+      }
+    }
   ]
 }

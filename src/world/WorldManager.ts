@@ -6,6 +6,8 @@ import type { Physics } from '../physics/Physics';
 import { buildTerrain, terrainHeight, isOpenMeadow, POND, RIVER_POINTS } from './Terrain';
 import { buildVillage } from './VillageBuilder';
 import { buildValley } from './ValleyBuilder';
+import { buildCity } from './CityBuilder';
+import { CITY } from './Terrain';
 import { makeKarstPeak } from './Props';
 import { SkyDome } from '../shaders/sky';
 import { WaterSurface } from '../shaders/water';
@@ -79,6 +81,8 @@ export class WorldManager {
     this.regions.push({ group: village, center: new THREE.Vector2(0, 0), radius: 320 });
     const valley = buildValley(this.ctx);
     this.regions.push({ group: valley, center: new THREE.Vector2(POI.valleyMeadow.x, POI.valleyMeadow.z), radius: 300 });
+    const city = buildCity(this.ctx);
+    this.regions.push({ group: city, center: new THREE.Vector2(CITY.x, CITY.z), radius: 300 });
 
     // Karst spires ring the sanctuary — the "world between skies" horizon.
     const peaks: [number, number, number, number][] = [
