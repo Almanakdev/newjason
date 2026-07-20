@@ -14,7 +14,7 @@
   --kp-shadow: 0 6px 24px rgba(51, 65, 92, 0.18);
   --kp-font: 'Trebuchet MS', 'Segoe UI', system-ui, -apple-system, sans-serif;
 
-  /* Jason Show landing theme — used by the pre-game screens (title,
+  /* Json Script Show landing theme — used by the pre-game screens (title,
      customization, prologue, loading) so the site and the game's front
      door match. In-game HUD deliberately stays on the cozy --kp-* palette. */
   --js-blue: #1734cf;
@@ -151,7 +151,7 @@ html, body {
   min-width: 232px;
   background: rgba(250, 246, 236, 0.92);
   border: 2px solid var(--kp-ink);
-  /* pink spine ties the tracker back to the Jason Show accent */
+  /* pink spine ties the tracker back to the Json Script Show accent */
   border-left: 5px solid var(--js-pink, #ec4380);
   border-radius: 4px 14px 14px 4px;
   padding: 10px 14px;

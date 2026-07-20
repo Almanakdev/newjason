@@ -4,7 +4,7 @@
  */
 export const GameConfig = {
   /** Game identity — change the working title here. */
-  title: 'JASON SHOW',
+  title: 'JSON SCRIPT SHOW',
   subtitle: 'The Kiriko Vale Startup Story',
   tagline: 'Write code. Make friends. Put a village back on the map.',
   version: '0.1.0',

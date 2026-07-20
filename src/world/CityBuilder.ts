@@ -32,7 +32,7 @@ export function buildCity(ctx: WorldCtx): THREE.Group {
   const towers: { x: number; z: number; h: number; screen?: boolean; hue?: string; label?: string; wall?: string }[] = [
     { x: C.x - 18, z: C.z + 20, h: 30, screen: true, hue: '#ec4380', label: 'コード', wall: '#8b95a6' },
     { x: C.x + 18, z: C.z + 20, h: 24, screen: true, hue: '#37b6d8', label: 'ミライ', wall: '#7f8aa0' },
-    { x: C.x - 18, z: C.z - 16, h: 26, screen: true, hue: '#ffd166', label: 'ジェイソン', wall: '#909aa8' },
+    { x: C.x - 18, z: C.z - 16, h: 26, screen: true, hue: '#ffd166', label: 'スクリプト', wall: '#909aa8' },
     { x: C.x + 18, z: C.z - 16, h: 34, screen: false, wall: '#7a8598' },
     // taller backdrop slabs behind the front row
     { x: C.x - 34, z: C.z + 34, h: 40, wall: '#6f7a8e' },

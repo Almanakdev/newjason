@@ -19,7 +19,7 @@ export interface WalletConnection {
   label: string;
 }
 
-const STORAGE_KEY = 'jason-show-wallet';
+const STORAGE_KEY = 'jsonscript-show-wallet';
 
 /* ------------------------------ provider types ----------------------------- */
 

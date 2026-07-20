@@ -15,7 +15,7 @@ import type { WorldCtx } from './Props';
  *    the way a real Shibuya display reads.
  */
 
-const KANA = ['コード', 'ミライ', 'ネオ', 'シティ', 'ジェイソン', 'ショー', 'カフェ', 'ラーメン', '未来', '電気'];
+const KANA = ['コード', 'ミライ', 'ネオ', 'シティ', 'スクリプト', 'ショー', 'カフェ', 'ラーメン', '未来', '電気'];
 
 function screenTexture(ctx: WorldCtx, w: number, h: number, hue: string, label: string): THREE.CanvasTexture {
   return ctx.assets.makeCanvasTexture(w, h, (c) => {
