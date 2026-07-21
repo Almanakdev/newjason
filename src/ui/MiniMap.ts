@@ -75,7 +75,7 @@ export class MiniMap {
     ctx.clip();
 
     // Backdrop for areas outside the raster (edge of the world).
-    ctx.fillStyle = '#0e2196';
+    ctx.fillStyle = '#0c1006';
     ctx.fillRect(0, 0, w, h);
 
     ctx.imageSmoothingEnabled = true;
@@ -117,7 +117,7 @@ export class MiniMap {
     ctx.lineTo(-6, 7);
     ctx.closePath();
     ctx.fillStyle = '#fff';
-    ctx.strokeStyle = '#08114d';
+    ctx.strokeStyle = '#0c1006';
     ctx.lineWidth = 1.5;
     ctx.fill();
     ctx.stroke();

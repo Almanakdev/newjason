@@ -4,9 +4,9 @@ import {
   autoConnect,
   connectDemo,
   connectEthereum,
-  connectSolana,
+  connectRobinhood,
   hasEthereum,
-  hasSolana,
+  hasRobinhood,
   save as saveWallet,
   clear as clearWallet,
   shortAddress,
@@ -149,21 +149,21 @@ export class TitleScreen {
 
     const opts = el('div', 'kp-wallet-opts');
     opts.appendChild(
-      button('kp-wallet-btn', hasSolana() ? '◎ Phantom' : '◎ Phantom — install', () => {
-        if (!hasSolana()) {
-          window.open('https://phantom.app/download', '_blank', 'noopener');
-          return;
-        }
-        void this.run(connectSolana);
-      })
-    );
-    opts.appendChild(
       button('kp-wallet-btn', hasEthereum() ? '⬡ MetaMask' : '⬡ MetaMask — install', () => {
         if (!hasEthereum()) {
           window.open('https://metamask.io/download/', '_blank', 'noopener');
           return;
         }
         void this.run(connectEthereum);
+      })
+    );
+    opts.appendChild(
+      button('kp-wallet-btn', hasRobinhood() ? '🏹 Robinhood' : '🏹 Robinhood — install', () => {
+        if (!hasRobinhood() && !hasEthereum()) {
+          window.open('https://robinhood.com/us/en/wallet/', '_blank', 'noopener');
+          return;
+        }
+        void this.run(connectRobinhood);
       })
     );
     opts.appendChild(
