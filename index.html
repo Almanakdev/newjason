@@ -128,6 +128,14 @@
       .hero-cta .row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; }
       .hero-cta .note { font-size: 13px; color: var(--text-dim); }
       .hero-cta .note b { color: var(--pink-soft); font-weight: 600; }
+      .ca-line {
+        margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12px;
+        color: var(--text-dim); word-break: break-all; max-width: 92vw;
+      }
+      .ca-line:empty { display: none; }
+      .ca-line a { color: var(--pink-soft); text-decoration: underline; text-underline-offset: 2px; }
+      .ca-line a:hover { color: var(--pink); }
+      button.btn { font-family: inherit; }
 
       /* ---------- PILLARS ---------- */
       .pillars { background: var(--blue-deep); border-bottom: 1px solid rgba(163, 230, 53, 0.18); }
@@ -280,7 +288,7 @@
           <li><a href="#features">Features</a></li>
           <li><a href="#cast">Cast</a></li>
         </ul>
-        <a class="btn" id="buyCoin" href="#" target="_blank" rel="noopener noreferrer">Buy on Robinhood</a>
+        <a class="btn" id="buyCoin" href="#" target="_blank" rel="noopener noreferrer">Buy Coin</a>
         <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
       </div>
     </nav>
@@ -302,8 +310,11 @@
         <p class="tagline">Write code. Make friends. Put a village back on the map.</p>
         <div class="row">
           <a class="btn big" href="./play.html">▶ Play Now!</a>
-          <a class="btn ghost big" href="#story">Read the Story</a>
+          <button class="btn ghost big" id="copyCa" type="button">
+            <span id="copyCaLabel">Copy CA</span>
+          </button>
         </div>
+        <p class="ca-line mono" id="caLine"></p>
         <p class="note jp">インストール不要 · <b>No install, no download</b> — runs in your browser</p>
       </div>
     </header>
@@ -479,10 +490,9 @@
       document.getElementById('navToggle').addEventListener('click', () => links.classList.toggle('open'));
       links.addEventListener('click', () => links.classList.remove('open'));
 
-      // ---------- Buy on Robinhood ----------
-      // ETH / Robinhood narrative. No contract address yet — fill BUY_URL with
-      // the Robinhood listing (or an Ethereum DEX link) when the token is live.
-      const BUY_URL = 'https://robinhood.com/'; // TODO: swap for the token's Robinhood page
+      // ---------- Buy Coin / Copy CA ----------
+      const CONTRACT_ADDRESS = '0x3AED02098886D6BA0324C2Eb18e44E0641494Fe0';
+      const BUY_URL = 'https://ponsfamily.com/launchpad/0x3aed02098886d6ba0324c2eb18e44e0641494fe0';
 
       const buyCoin = document.getElementById('buyCoin');
       if (BUY_URL) {
@@ -492,6 +502,44 @@
         buyCoin.style.opacity = '0.5';
         buyCoin.style.pointerEvents = 'none';
       }
+
+      const copyBtn = document.getElementById('copyCa');
+      const copyLabel = document.getElementById('copyCaLabel');
+      const caLine = document.getElementById('caLine');
+
+      if (CONTRACT_ADDRESS) {
+        // Show the CA under the hero as a link to the launchpad.
+        caLine.innerHTML = '';
+        const caLink = document.createElement('a');
+        caLink.href = BUY_URL || '#';
+        caLink.target = '_blank';
+        caLink.rel = 'noopener noreferrer';
+        caLink.textContent = CONTRACT_ADDRESS;
+        caLine.append(document.createTextNode('CA: '), caLink);
+      } else {
+        copyBtn.disabled = true;
+        copyBtn.style.opacity = '0.5';
+        copyBtn.style.cursor = 'default';
+      }
+
+      copyBtn.addEventListener('click', async () => {
+        if (!CONTRACT_ADDRESS) return;
+        try {
+          await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+        } catch {
+          // clipboard API needs https (or localhost) — fall back to a selection copy
+          const tmp = document.createElement('textarea');
+          tmp.value = CONTRACT_ADDRESS;
+          tmp.style.position = 'fixed';
+          tmp.style.opacity = '0';
+          document.body.appendChild(tmp);
+          tmp.select();
+          document.execCommand('copy');
+          tmp.remove();
+        }
+        copyLabel.textContent = '✓ Copied!';
+        setTimeout(() => { copyLabel.textContent = 'Copy CA'; }, 1600);
+      });
 
       const io = new IntersectionObserver(
         (entries) => {
