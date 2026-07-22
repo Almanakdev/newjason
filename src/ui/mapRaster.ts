@@ -26,7 +26,7 @@ export const MARKERS: MapMarker[] = [
   { x: POI.valleyMeadow.x, z: POI.valleyMeadow.z, icon: '🌾', label: 'Whispergrass' },
   { x: POI.orinCamp.x, z: POI.orinCamp.z, icon: '⛺', label: 'Ranger camp' },
   { x: POI.valleyShrine.x, z: POI.valleyShrine.z, icon: '⛩', label: 'Shrine' },
-  { x: POI.cityCrossing.x, z: POI.cityCrossing.z, icon: '🏙', label: 'Neon Ward' },
+  { x: POI.cityCrossing.x, z: POI.cityCrossing.z, icon: '🏮', label: 'Chinatown' },
 ];
 
 // Widened west (minX) so the city district at x≈-100 falls inside the map.

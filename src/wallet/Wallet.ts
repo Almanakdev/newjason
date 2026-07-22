@@ -1,21 +1,21 @@
 /**
  * Wallet — connect flow for the title screen.
  *
- * Ethereum-first: MetaMask (or any injected EIP-1193 provider) and Robinhood
- * Wallet, plus a local "demo wallet" so the game is playable without installing
- * anything.
+ * BNB Chain (EVM): MetaMask (or any injected EIP-1193 provider) and the
+ * Binance Wallet, plus a local "demo wallet" so the game is playable without
+ * installing anything.
  *
  * Scope note: this only ever requests the public address. It never requests
  * signatures, never moves funds, and never touches private keys.
  */
 
-export type WalletKind = 'ethereum' | 'robinhood' | 'demo';
+export type WalletKind = 'ethereum' | 'binance' | 'demo';
 
 export interface WalletConnection {
   kind: WalletKind;
   /** Public address. For 'demo' this is a locally generated placeholder. */
   address: string;
-  /** Human label for the provider, e.g. 'MetaMask', 'Robinhood', 'Demo wallet'. */
+  /** Human label for the provider, e.g. 'MetaMask', 'Binance Wallet', 'Demo wallet'. */
   label: string;
 }
 
@@ -25,7 +25,7 @@ const STORAGE_KEY = 'jsonsaga-show-wallet';
 
 interface EthereumProvider {
   isMetaMask?: boolean;
-  isRobinhood?: boolean;
+  isBinance?: boolean;
   request: (args: { method: string; params?: unknown[] }) => Promise<unknown>;
   providers?: EthereumProvider[];
 }
@@ -33,6 +33,8 @@ interface EthereumProvider {
 declare global {
   interface Window {
     ethereum?: EthereumProvider;
+    // Binance Wallet extension injects its own EIP-1193-style provider.
+    BinanceChain?: EthereumProvider;
   }
 }
 
@@ -44,7 +46,7 @@ function ethereumProvider(): EthereumProvider | null {
 }
 
 /** Pick a specific injected provider when several coexist (multi-wallet). */
-function pickProvider(flag: 'isMetaMask' | 'isRobinhood'): EthereumProvider | null {
+function pickProvider(flag: 'isMetaMask' | 'isBinance'): EthereumProvider | null {
   const root = ethereumProvider();
   if (!root) return null;
   if (root.providers?.length) {
@@ -54,21 +56,28 @@ function pickProvider(flag: 'isMetaMask' | 'isRobinhood'): EthereumProvider | nu
   return root; // fall back to whatever single provider is injected
 }
 
+/** The Binance Wallet's dedicated provider, or any provider flagged Binance. */
+function binanceProvider(): EthereumProvider | null {
+  if (typeof window !== 'undefined' && window.BinanceChain) return window.BinanceChain;
+  return pickProvider('isBinance');
+}
+
 export function hasEthereum(): boolean {
   return ethereumProvider() !== null;
 }
 
-export function hasRobinhood(): boolean {
+export function hasBinance(): boolean {
+  if (typeof window !== 'undefined' && window.BinanceChain) return true;
   const root = ethereumProvider();
   if (!root) return false;
-  if (root.isRobinhood) return true;
-  return !!root.providers?.some((p) => p.isRobinhood);
+  if (root.isBinance) return true;
+  return !!root.providers?.some((p) => p.isBinance);
 }
 
 function ethereumLabel(p: EthereumProvider | null): string {
-  if (p?.isRobinhood) return 'Robinhood';
+  if (p?.isBinance) return 'Binance Wallet';
   if (p?.isMetaMask) return 'MetaMask';
-  return 'Ethereum wallet';
+  return 'BNB wallet';
 }
 
 /** Short display form: `AbCd…WxYz`. */
@@ -87,17 +96,16 @@ async function requestAccount(provider: EthereumProvider): Promise<string> {
 
 export async function connectEthereum(): Promise<WalletConnection> {
   const provider = pickProvider('isMetaMask') ?? ethereumProvider();
-  if (!provider) throw new Error('No Ethereum wallet found. Install MetaMask to continue.');
+  if (!provider) throw new Error('No wallet found. Install MetaMask (set to BNB Chain) to continue.');
   const address = await requestAccount(provider);
   return { kind: 'ethereum', address, label: ethereumLabel(provider) };
 }
 
-export async function connectRobinhood(): Promise<WalletConnection> {
-  // Robinhood Wallet's extension injects an EIP-1193 provider like any other.
-  const provider = pickProvider('isRobinhood') ?? ethereumProvider();
-  if (!provider) throw new Error('Robinhood Wallet not found. Install it to continue.');
+export async function connectBinance(): Promise<WalletConnection> {
+  const provider = binanceProvider() ?? ethereumProvider();
+  if (!provider) throw new Error('Binance Wallet not found. Install it to continue.');
   const address = await requestAccount(provider);
-  return { kind: 'robinhood', address, label: 'Robinhood' };
+  return { kind: 'binance', address, label: 'Binance Wallet' };
 }
 
 /**
@@ -145,7 +153,7 @@ export function clear(): void {
 }
 
 /**
- * Silently restore a previous session. Ethereum/Robinhood are re-checked with
+ * Silently restore a previous session. MetaMask/Binance are re-checked with
  * `eth_accounts` (which never prompts); the demo wallet is restored from storage.
  */
 export async function autoConnect(): Promise<WalletConnection | null> {
@@ -154,13 +162,13 @@ export async function autoConnect(): Promise<WalletConnection | null> {
 
   if (saved.kind === 'demo') return saved;
 
-  const provider = ethereumProvider();
+  const provider = saved.kind === 'binance' ? binanceProvider() ?? ethereumProvider() : ethereumProvider();
   if (!provider) return null;
   try {
     // eth_accounts does not prompt — it returns only already-authorized accounts.
     const accounts = (await provider.request({ method: 'eth_accounts' })) as string[];
     if (!accounts?.length) return null;
-    const label = saved.kind === 'robinhood' ? 'Robinhood' : ethereumLabel(provider);
+    const label = saved.kind === 'binance' ? 'Binance Wallet' : ethereumLabel(provider);
     return { kind: saved.kind, address: accounts[0], label };
   } catch {
     return null;

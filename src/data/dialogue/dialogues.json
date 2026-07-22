@@ -770,7 +770,7 @@
           "lines": [
             "A guy in a hood is crouched on the crossing island, laptop balanced on his knees, screen reflecting pink neon back at him.",
             "\"Yo. You're the one who walked in from the mountains, right? Word travels fast when the signal tower comes back online.\"",
-            "\"Kenji. K2 if you're typing. I ship from the street — best latency in the Ward is right here under the big screen. Don't ask about the rent.\""
+            "\"Kenji. K2 if you're typing. I ship from the street — best latency in Chinatown is right here under the lanterns. Don't ask about the rent.\""
           ],
           "effects": { "setFlag": "met_kenji", "friendship": { "id": "kenji_arai", "delta": 3 } },
           "next": "b"
@@ -799,7 +799,7 @@
         "a": {
           "lines": [
             "\"Push to main, touch grass, repeat. Except out here the grass is a sakura tree and the main branch is neon. Same energy.\"",
-            "\"Ward's looking sharp tonight. You did that, mountain kid.\""
+            "\"Chinatown's looking sharp tonight. You did that, mountain kid.\""
           ]
         }
       }
@@ -815,7 +815,7 @@
         "a": {
           "lines": [
             "The konbini doors chime as you pass. The clerk waves without looking up from restocking.",
-            "\"Irasshaimase — oh! New face. You're the founder everyone's tab is about. Welcome to the only shop in the Ward that never closes.\"",
+            "\"Huanying — oh! New face. You're the founder everyone's tab is about. Welcome to the only shop in Chinatown that never closes.\"",
             "\"I'm Yua. Hot coffee's by the door, umbrellas are three-fifty, and yes, the tower coming back means my fridge finally holds temperature. Thank you for that, seriously.\""
           ],
           "effects": { "setFlag": "met_yua", "friendship": { "id": "yua_sato", "delta": 3 } }
@@ -838,6 +838,20 @@
 
   "rei_tanaka": [
     {
+      "id": "rei_bao_delivery",
+      "conditions": { "questAt": { "quest": "side_bao_run", "step": 0 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "Rei spots the steamer basket before they spot you, and pulls one headphone off with theatrical slowness.",
+            "\"Lin sent bao. To the roof. Mid-set. This is the greatest delivery in the history of logistics.\"",
+            "\"Tell the chef the midnight set is dedicated to the steamer basket. No — wait. Tell him it's dedicated to him. The basket gets the encore.\""
+          ]
+        }
+      }
+    },
+    {
       "id": "rei_intro",
       "conditions": { "notFlag": "met_rei" },
       "start": "a",
@@ -846,14 +860,14 @@
           "lines": [
             "Bass leaks from a rooftop rig. A DJ leans over the railing, headphones around their neck, grinning down at the crossing.",
             "\"There they are — the reason my speakers have clean power again. Rei. They call me Neon when the set's good, which is always.\"",
-            "\"I score this whole Ward. Sunset set when the screens flip warm, midnight set when they go electric. You gave me my night back.\""
+            "\"I score all of Chinatown. Sunset set when the lanterns warm up, midnight set when the neon goes electric. You gave me my night back.\""
           ],
           "effects": { "setFlag": "met_rei", "friendship": { "id": "rei_tanaka", "delta": 3 } },
           "next": "b"
         },
         "b": {
           "lines": [
-            "\"Stick around till the lamps kick on. The crossing hits different when the city's lit and the drums drop. That's the real Neon Ward.\""
+            "\"Stick around till the lanterns kick on. The square hits different when the whole street glows red and the drums drop. That's the real Chinatown.\""
           ]
         }
       }
@@ -881,7 +895,7 @@
         "a": {
           "lines": [
             "A streamer spins her ring light toward you before you've even stopped walking. \"Chat, CHAT — it's the founder. The actual one.\"",
-            "\"Mei. I test builds and I stream the crashes, it's a whole genre. If your thing ships in the Ward, it ships past me first.\"",
+            "\"Mei. I test builds and I stream the crashes, it's a whole genre. If your thing ships in Chinatown, it ships past me first.\"",
             "\"No pressure. Okay, some pressure. My viewers are merciless and I love them.\""
           ],
           "effects": { "setFlag": "met_mei", "friendship": { "id": "mei_fujimoto", "delta": 3 } },
@@ -911,7 +925,251 @@
         "a": {
           "lines": [
             "\"Stream's live, don't look directly at the camera — okay you looked, they love you now, this is your life.\"",
-            "\"Ward's trending, by the way. Turns out 'coder rebuilds a city' is a great arc.\""
+            "\"Chinatown's trending, by the way. Turns out 'coder rebuilds a city' is a great arc.\""
+          ]
+        }
+      }
+    }
+  ],
+
+  "lin_bao": [
+    {
+      "id": "lin_return",
+      "conditions": { "questAt": { "quest": "side_bao_run", "step": 1 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Delivered hot? Rooftop? Mid-set?\" Lin slaps the counter with a rolled-up menu.",
+            "\"You're hired. Not really — I can't pay you. But you eat free, and in this economy that's better.\"",
+            "He stacks a fresh basket and pushes it across the counter before you can argue."
+          ]
+        }
+      }
+    },
+    {
+      "id": "lin_reminder",
+      "conditions": { "questAt": { "quest": "side_bao_run", "step": 0 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Basket's getting cold, runner! Rei's on the east rooftops — follow the bass, take the stairs two at a time, and do NOT drop it.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "lin_intro",
+      "conditions": { "notFlag": "met_lin" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "The bao chef works two steamers at once, talking without looking up — mostly to the bao.",
+            "\"Rise, little ones. Rise... You. Founder. You look like someone who skips lunch to fix bugs. I can smell it.\"",
+            "\"Lin Bao. Yes, that's really my name, yes, it's destiny, no, I don't take feature requests on the menu.\""
+          ],
+          "effects": { "setFlag": "met_lin", "friendship": { "id": "lin_bao", "delta": 3 } },
+          "next": "b"
+        },
+        "b": {
+          "lines": [
+            "\"Actually — one request. My best customer is glued to a rooftop and my legs are done for the day.\""
+          ],
+          "choices": [
+            {
+              "text": "\"I can run a delivery.\"",
+              "effects": { "startQuest": "side_bao_run" },
+              "next": "quest"
+            },
+            { "text": "\"Maybe later — smells amazing though.\"" }
+          ]
+        },
+        "quest": {
+          "lines": [
+            "\"YES. One basket, straight up to Rei, while it still steams. Go go go — bao waits for no one!\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "lin_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Rise, little ones, rise... oh, hey. The usual? The usual is whatever's ready and you'll like it.\""
+          ],
+          "choices": [
+            {
+              "text": "Trade him a bowl of hearth stew.",
+              "conditions": { "hasItem": { "id": "veggie_stew", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "veggie_stew", "qty": 1 }],
+                "giveItems": [{ "id": "steamed_bao", "qty": 2 }],
+                "friendship": { "id": "lin_bao", "delta": 6 }
+              },
+              "next": "trade"
+            },
+            { "text": "\"Just passing through the steam cloud.\"" }
+          ]
+        },
+        "trade": {
+          "lines": [
+            "\"Mountain stew for city bao. This is what economists call a perfect market. Don't tell the konbini.\""
+          ]
+        }
+      }
+    }
+  ],
+
+  "granny_wu": [
+    {
+      "id": "wu_celebrate",
+      "conditions": { "questCompleted": "side_lantern_festival" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "Granny Wu pours two cups without asking and pushes one toward you.",
+            "\"The whole street said yes. Feng is grinding ink. The route is checked, gate to pagoda.\"",
+            "\"When the lanterns go up, that's your doing, little founder. Now drink your tea before it gets philosophical.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "wu_reminder",
+      "conditions": { "questActive": "side_lantern_festival" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Festival first, tea after. Rally the street, invite Feng, and walk the route — gate to pagoda. My knees do stairs once a year, and this is not the year.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "wu_intro",
+      "conditions": { "notFlag": "met_wu" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "A tiny woman at the tea stand looks you up and down like she's appraising a melon.",
+            "\"Hm. The founder. You walk too fast and you don't drink enough tea. Sit. I'm Wu. Everyone calls me Granny Wu, including people older than me.\"",
+            "\"Before the tower went dark, this street held a Lantern Festival every season. Gate to pagoda, five hundred lanterns, noodles at midnight. Then the lights went out and so did we.\""
+          ],
+          "effects": { "setFlag": "met_wu", "friendship": { "id": "granny_wu", "delta": 3 } },
+          "next": "b"
+        },
+        "b": {
+          "lines": [
+            "\"You brought the signal back. So I'll say what everyone's thinking: it's time. But these knees don't rally a street anymore.\""
+          ],
+          "choices": [
+            {
+              "text": "\"I'll get the festival moving.\"",
+              "effects": { "startQuest": "side_lantern_festival" },
+              "next": "quest"
+            },
+            { "text": "\"Let me think about it over tea.\"" }
+          ]
+        },
+        "quest": {
+          "lines": [
+            "\"Good. Tell Kenji, Yua and Mei — they ARE the street these days. Ask Master Feng for the banner; he'll pretend to refuse, ask twice. Then walk the route yourself, gate to pagoda, and check every lantern line.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "wu_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Sit. Drink. The city can wait four minutes — that's how long good tea takes, and nothing you're building is faster than tea.\""
+          ],
+          "choices": [
+            {
+              "text": "Share your berry tea with her.",
+              "conditions": { "hasItem": { "id": "berry_tea", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "berry_tea", "qty": 1 }],
+                "friendship": { "id": "granny_wu", "delta": 6 }
+              },
+              "next": "gift"
+            },
+            { "text": "\"Four minutes. Deal.\"" }
+          ]
+        },
+        "gift": {
+          "lines": [
+            "She sniffs it, eyebrows up. \"Mountain berries. Hm. Acceptable.\" From Granny Wu, that's a standing ovation."
+          ]
+        }
+      }
+    }
+  ],
+
+  "master_feng": [
+    {
+      "id": "feng_banner",
+      "conditions": { "questAt": { "quest": "side_lantern_festival", "step": 1 } },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "Master Feng doesn't look up from the character he's painting — a single 福 the size of a window.",
+            "\"A festival banner. No. My festival brushes are retired. They retired when the lights did.\"",
+            "You wait. He finishes the stroke, sets down the brush, and sighs like a man losing an argument with himself.",
+            "\"...Wu sent you. Of course she did. Fine. Gate to pagoda deserves a proper banner, and nobody else's strokes survive the wind. Tell her the brushes are un-retired.\""
+          ]
+        }
+      }
+    },
+    {
+      "id": "feng_intro",
+      "conditions": { "notFlag": "met_feng" },
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "The calligraphy shop smells of ink and old paper. The sign outside reads 文房四宝 — the four treasures of the study.",
+            "\"Brush, ink, paper, inkstone,\" the old man says, by way of hello. \"Four tools, ten thousand outcomes. Your laptop has one tool and it argues with you.\"",
+            "\"Feng. I paint what the street needs saying. Signs, blessings, apologies — mostly apologies.\""
+          ],
+          "effects": { "setFlag": "met_feng", "friendship": { "id": "master_feng", "delta": 3 } }
+        }
+      }
+    },
+    {
+      "id": "feng_default",
+      "start": "a",
+      "nodes": {
+        "a": {
+          "lines": [
+            "\"Code is calligraphy for machines. Same discipline: every stroke deliberate, nothing wasted, and you never get to blame the brush.\""
+          ],
+          "choices": [
+            {
+              "text": "Offer him the storm glass.",
+              "conditions": { "hasItem": { "id": "storm_glass", "qty": 1 } },
+              "effects": {
+                "takeItems": [{ "id": "storm_glass", "qty": 1 }],
+                "friendship": { "id": "master_feng", "delta": 6 }
+              },
+              "next": "gift"
+            },
+            { "text": "\"I'll try to code with fewer wasted strokes.\"" }
+          ]
+        },
+        "gift": {
+          "lines": [
+            "He holds the storm glass to the light for a long moment. \"An inkstone made by lightning. I have painted forty years for a tool like this.\" He bows, very slightly. You bow back. It feels correct."
           ]
         }
       }

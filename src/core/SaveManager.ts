@@ -132,8 +132,8 @@ export class SaveManager {
       updatedAt: Date.now(),
       playerName,
       appearance,
-      // Arrive in the Neon Ward, on the south approach looking up the avenue
-      // into the scramble crossing and its screen towers.
+      // Arrive in Chinatown, on the south approach looking up the avenue
+      // through the paifang gate toward the market square.
       position: { x: -100, y: 3, z: -16 },
       yaw: 0,
       timeOfDay: GameConfig.startTimeOfDay,

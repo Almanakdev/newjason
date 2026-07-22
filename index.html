@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#070806" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <title>JsonSaga Show — The Kiriko Vale Startup Story</title>
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <title>The Origin of JSON — The Kiriko Vale Startup Story</title>
     <meta
       name="description"
       content="Write code. Make friends. Put a village back on the map. A cozy browser-native 3D life sim about rebooting a mountain village's dead Signal Tower."
     />
 
-    <meta property="og:title" content="JsonSaga Show — The Kiriko Vale Startup Story" />
+    <meta property="og:title" content="The Origin of JSON — The Kiriko Vale Startup Story" />
     <meta property="og:description" content="Write code. Make friends. Put a village back on the map." />
     <meta property="og:image" content="/banner.png" />
     <meta property="og:type" content="website" />
@@ -24,20 +24,20 @@
     />
     <style>
       :root {
-        /* JsonSaga Show — black + lime-green + white, per the banner.
+        /* The Origin of JSON — black + amber-gold + white, per the banner.
            Names kept from the old blue/pink theme so every var() flips at once:
-           --blue* now = dark backgrounds, --pink* now = lime accent. */
+           --blue* now = dark backgrounds, --pink* now = amber accent. */
         --blue: #14180f;
         --blue-deep: #0c0f08;
         --blue-ink: #070806;
-        --pink: #a3e635;
-        --pink-soft: #cdee8a;
-        --pink-glow: rgba(163, 230, 53, 0.45);
+        --pink: #f5a623;
+        --pink-soft: #ffd27a;
+        --pink-glow: rgba(245, 166, 35, 0.45);
         --on-accent: #0a0c06;
         --white: #ffffff;
         --text: #eef2e4;
-        --text-dim: #93a07f;
-        --line: rgba(163, 230, 53, 0.22);
+        --text-dim: #9a9184;
+        --line: rgba(245, 166, 35, 0.22);
         --panel: rgba(24, 30, 16, 0.6);
         --maxw: 1180px;
       }
@@ -61,7 +61,7 @@
       nav {
         position: sticky; top: 0; z-index: 50;
         background: rgba(8, 10, 6, 0.86); backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(163, 230, 53, 0.16);
+        border-bottom: 1px solid rgba(245, 166, 35, 0.16);
       }
       nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
       .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; letter-spacing: -0.02em; }
@@ -77,7 +77,7 @@
       }
       .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px var(--pink-glow); }
       .btn.ghost { background: transparent; color: var(--pink-soft); }
-      .btn.ghost:hover { background: rgba(163, 230, 53, 0.14); }
+      .btn.ghost:hover { background: rgba(245, 166, 35, 0.14); }
       .btn.big { font-size: 16px; padding: 15px 38px; }
       .nav-toggle { display: none; background: none; border: 0; color: var(--pink-soft); font-size: 22px; cursor: pointer; }
 
@@ -85,9 +85,9 @@
       header.hero {
         position: relative; overflow: hidden;
         background:
-          radial-gradient(900px 420px at 78% 30%, rgba(163, 230, 53, 0.18), transparent 70%),
+          radial-gradient(900px 420px at 78% 30%, rgba(245, 166, 35, 0.18), transparent 70%),
           linear-gradient(180deg, var(--blue) 0%, var(--blue-deep) 100%);
-        border-bottom: 1px solid rgba(163, 230, 53, 0.2);
+        border-bottom: 1px solid rgba(245, 166, 35, 0.2);
       }
       .hero-banner { position: relative; }
       .hero-banner img { display: block; width: 100%; height: auto; }
@@ -128,17 +128,9 @@
       .hero-cta .row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; }
       .hero-cta .note { font-size: 13px; color: var(--text-dim); }
       .hero-cta .note b { color: var(--pink-soft); font-weight: 600; }
-      .ca-line {
-        margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12px;
-        color: var(--text-dim); word-break: break-all; max-width: 92vw;
-      }
-      .ca-line:empty { display: none; }
-      .ca-line a { color: var(--pink-soft); text-decoration: underline; text-underline-offset: 2px; }
-      .ca-line a:hover { color: var(--pink); }
-      button.btn { font-family: inherit; }
 
       /* ---------- PILLARS ---------- */
-      .pillars { background: var(--blue-deep); border-bottom: 1px solid rgba(163, 230, 53, 0.18); }
+      .pillars { background: var(--blue-deep); border-bottom: 1px solid rgba(245, 166, 35, 0.18); }
       .pillars .wrap { display: grid; grid-template-columns: repeat(4, 1fr); padding: 0 24px; }
       .pillar { padding: 34px 20px; text-align: center; border-left: 1px solid var(--line); }
       .pillar:first-child { border-left: 0; }
@@ -169,7 +161,7 @@
       }
       .terminal .bar {
         display: flex; align-items: center; gap: 7px; padding: 11px 14px;
-        background: rgba(163, 230, 53, 0.1); border-bottom: 1px solid var(--line);
+        background: rgba(245, 166, 35, 0.1); border-bottom: 1px solid var(--line);
       }
       .terminal .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--pink-soft); opacity: 0.8; }
       .terminal .bar span { margin-left: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); }
@@ -202,7 +194,7 @@
         background: var(--pink-soft); border: 3px solid var(--pink);
         display: grid; place-items: center; font-family: 'JetBrains Mono', monospace;
         font-size: 24px; font-weight: 700; color: var(--blue-deep);
-        box-shadow: 0 0 0 8px rgba(163, 230, 53, 0.12);
+        box-shadow: 0 0 0 8px rgba(245, 166, 35, 0.12);
       }
       .member h3 { margin: 0 0 4px; font-size: 17px; font-weight: 700; }
       .member .role { margin: 0 0 10px; font-size: 12px; letter-spacing: 0.16em; color: var(--pink); }
@@ -210,7 +202,7 @@
 
       /* ---------- PLAY CTA ---------- */
       #play {
-        background: radial-gradient(700px 300px at 50% 0%, rgba(163, 230, 53, 0.2), transparent 70%), var(--blue);
+        background: radial-gradient(700px 300px at 50% 0%, rgba(245, 166, 35, 0.2), transparent 70%), var(--blue);
         border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center;
       }
       #play h2 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -0.02em; }
@@ -279,9 +271,9 @@
     <nav>
       <div class="wrap">
         <a class="brand" href="#top">
-          <img src="/logo.svg" alt="" class="brand-mark" width="34" height="34" />
-          <span>JSONSAGA</span>
-          <span style="color: var(--pink); font-style: italic">SHOW</span>
+          <img src="/logo.png" alt="" class="brand-mark" width="34" height="34" />
+          <span>The Origin of</span>
+          <span style="color: var(--pink); font-style: italic">JSON</span>
         </a>
         <ul id="navlinks">
           <li><a href="#story">Story</a></li>
@@ -295,12 +287,12 @@
 
     <header class="hero" id="top">
       <div class="hero-banner" id="heroBanner">
-        <img src="/banner.png" alt="JsonSaga Show — スクリプト / JSONサガ・ショー" id="bannerImg" />
+        <img src="/banner.png" alt="The Origin of JSON — スクリプト / JSON萨加・起源" id="bannerImg" />
         <div class="hero-fallback">
           <p class="kicker jp">スクリプト</p>
-          <h1>JsonSaga <em>Show</em></h1>
+          <h1>The Origin of <em>JSON</em></h1>
           <p class="jp" style="margin: 18px 0 0; color: var(--pink-soft); letter-spacing: 0.3em">
-            { JSONサガ・ショー }
+            { JSON萨加・起源 }
           </p>
         </div>
         <span class="corner tl"></span><span class="corner tr"></span>
@@ -310,11 +302,8 @@
         <p class="tagline">Write code. Make friends. Put a village back on the map.</p>
         <div class="row">
           <a class="btn big" href="./play.html">▶ Play Now!</a>
-          <button class="btn ghost big" id="copyCa" type="button">
-            <span id="copyCaLabel">Copy CA</span>
-          </button>
+          <a class="btn ghost big" href="#story">Read the Story</a>
         </div>
-        <p class="ca-line mono" id="caLine"></p>
         <p class="note jp">インストール不要 · <b>No install, no download</b> — runs in your browser</p>
       </div>
     </header>
@@ -425,7 +414,7 @@
 
     <footer>
       <div class="wrap">
-        <span class="copy">© 2026 JsonSaga Show — The Kiriko Vale Startup Story. v0.1.0</span>
+        <span class="copy">© 2026 The Origin of JSON — The Kiriko Vale Startup Story. v0.1.0</span>
         <span class="tagline jp">未来を創る。</span>
       </div>
     </footer>
@@ -490,9 +479,10 @@
       document.getElementById('navToggle').addEventListener('click', () => links.classList.toggle('open'));
       links.addEventListener('click', () => links.classList.remove('open'));
 
-      // ---------- Buy Coin / Copy CA ----------
-      const CONTRACT_ADDRESS = '0x3AED02098886D6BA0324C2Eb18e44E0641494Fe0';
-      const BUY_URL = 'https://ponsfamily.com/launchpad/0x3aed02098886d6ba0324c2eb18e44e0641494fe0';
+      // ---------- Buy Coin (BNB Chain) ----------
+      // No contract address yet. Point BUY_URL at the token's PancakeSwap /
+      // BNB launchpad page when it's live.
+      const BUY_URL = 'https://pancakeswap.finance/'; // TODO: swap for the BNB token page
 
       const buyCoin = document.getElementById('buyCoin');
       if (BUY_URL) {
@@ -502,44 +492,6 @@
         buyCoin.style.opacity = '0.5';
         buyCoin.style.pointerEvents = 'none';
       }
-
-      const copyBtn = document.getElementById('copyCa');
-      const copyLabel = document.getElementById('copyCaLabel');
-      const caLine = document.getElementById('caLine');
-
-      if (CONTRACT_ADDRESS) {
-        // Show the CA under the hero as a link to the launchpad.
-        caLine.innerHTML = '';
-        const caLink = document.createElement('a');
-        caLink.href = BUY_URL || '#';
-        caLink.target = '_blank';
-        caLink.rel = 'noopener noreferrer';
-        caLink.textContent = CONTRACT_ADDRESS;
-        caLine.append(document.createTextNode('CA: '), caLink);
-      } else {
-        copyBtn.disabled = true;
-        copyBtn.style.opacity = '0.5';
-        copyBtn.style.cursor = 'default';
-      }
-
-      copyBtn.addEventListener('click', async () => {
-        if (!CONTRACT_ADDRESS) return;
-        try {
-          await navigator.clipboard.writeText(CONTRACT_ADDRESS);
-        } catch {
-          // clipboard API needs https (or localhost) — fall back to a selection copy
-          const tmp = document.createElement('textarea');
-          tmp.value = CONTRACT_ADDRESS;
-          tmp.style.position = 'fixed';
-          tmp.style.opacity = '0';
-          document.body.appendChild(tmp);
-          tmp.select();
-          document.execCommand('copy');
-          tmp.remove();
-        }
-        copyLabel.textContent = '✓ Copied!';
-        setTimeout(() => { copyLabel.textContent = 'Copy CA'; }, 1600);
-      });
 
       const io = new IntersectionObserver(
         (entries) => {

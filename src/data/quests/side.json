@@ -80,5 +80,77 @@
         }
       }
     ]
+  },
+  {
+    "id": "side_lantern_festival",
+    "title": "The Lantern Festival",
+    "description": "Granny Wu wants to relight Chinatown's Lantern Festival — the first since the tower went dark. Someone has to rally the street, and the street has decided it's you.",
+    "type": "side",
+    "giver": "granny_wu",
+    "steps": [
+      {
+        "id": "spread_word",
+        "title": "Spread the word through Chinatown",
+        "hint": "Kenji codes under the lanterns at the square, Yua keeps the 便利店, Mei streams near the east side.",
+        "objectives": [
+          { "type": "talk", "target": "kenji_arai", "label": "Tell Kenji" },
+          { "type": "talk", "target": "yua_sato", "label": "Tell Yua" },
+          { "type": "talk", "target": "mei_fujimoto", "label": "Tell Mei" }
+        ]
+      },
+      {
+        "id": "invite_feng",
+        "title": "Invite the calligrapher",
+        "hint": "Master Feng keeps the 文房四宝 shop on the west avenue.",
+        "objectives": [
+          { "type": "talk", "target": "master_feng", "label": "Ask Master Feng to paint the banner" }
+        ],
+        "onComplete": {
+          "friendship": { "id": "master_feng", "delta": 5 }
+        }
+      },
+      {
+        "id": "light_the_way",
+        "title": "Walk the festival route",
+        "hint": "From the paifang gate at the south entrance to the pagoda on the northeast corner.",
+        "objectives": [
+          { "type": "reach", "target": "cityGate", "label": "Check the gate lanterns" },
+          { "type": "reach", "target": "cityPagoda", "label": "Check the pagoda lanterns" }
+        ],
+        "onComplete": {
+          "giveItems": [{ "id": "steamed_bao", "qty": 3 }],
+          "friendship": { "id": "granny_wu", "delta": 10 },
+          "setFlag": "lantern_festival_ready"
+        }
+      }
+    ]
+  },
+  {
+    "id": "side_bao_run",
+    "title": "Hot Bao, Cold Rooftop",
+    "description": "Lin Bao's best customer never leaves the decks. Run a steamer basket up to Rei before the midnight set starts — and before the bao goes cold.",
+    "type": "side",
+    "giver": "lin_bao",
+    "steps": [
+      {
+        "id": "deliver_rei",
+        "title": "Deliver the bao to Rei",
+        "hint": "Rei scores the district from the east rooftops — follow the bass.",
+        "objectives": [
+          { "type": "talk", "target": "rei_tanaka", "label": "Bring Rei the bao" }
+        ]
+      },
+      {
+        "id": "return_lin",
+        "title": "Report back to Lin",
+        "objectives": [
+          { "type": "talk", "target": "lin_bao", "label": "Tell Lin the delivery landed" }
+        ],
+        "onComplete": {
+          "giveItems": [{ "id": "steamed_bao", "qty": 2 }],
+          "friendship": { "id": "lin_bao", "delta": 8 }
+        }
+      }
+    ]
   }
 ]

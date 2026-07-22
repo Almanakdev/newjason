@@ -137,7 +137,7 @@
   {
     "id": "kenji_arai",
     "name": "Kenji \"K2\" Arai",
-    "role": "Street Coder — Neon Ward",
+    "role": "Street Coder — Chinatown",
     "region": "city",
     "dialogueKey": "kenji_arai",
     "giftPreference": "berry_tea",
@@ -199,6 +199,55 @@
       { "start": 16, "end": 22, "x": -70, "z": 12, "activity": "sit" },
       { "start": 22, "end": 24, "x": -72, "z": 12, "activity": "idle" },
       { "start": 0, "end": 8, "x": -70, "z": 12, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "lin_bao",
+    "name": "Lin Bao",
+    "role": "Street Chef — 包子",
+    "region": "city",
+    "dialogueKey": "lin_bao",
+    "giftPreference": "veggie_stew",
+    "home": { "x": -92, "z": 23 },
+    "appearance": { "bodyType": 2, "skinTone": 2, "faceShape": 1, "eyes": 1, "brows": 1, "mouth": 2, "hairstyle": 0, "hairColor": 0, "jacket": 1, "shirt": 2, "pants": 8, "shoes": 8, "scarf": 0, "hat": 2, "backpack": 0, "gloves": 1, "pin": 0 },
+    "schedule": [
+      { "start": 5, "end": 14, "x": -92, "z": 22, "activity": "work" },
+      { "start": 14, "end": 16, "x": -100, "z": 8, "activity": "idle" },
+      { "start": 16, "end": 23, "x": -92, "z": 22, "activity": "work" },
+      { "start": 23, "end": 5, "x": -94, "z": 25, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "granny_wu",
+    "name": "Granny Wu",
+    "role": "Tea House Keeper",
+    "region": "city",
+    "dialogueKey": "granny_wu",
+    "giftPreference": "berry_tea",
+    "home": { "x": -92, "z": 1 },
+    "appearance": { "bodyType": 0, "skinTone": 3, "faceShape": 1, "eyes": 3, "brows": 0, "mouth": 0, "hairstyle": 2, "hairColor": 10, "jacket": 6, "shirt": 9, "pants": 10, "shoes": 8, "scarf": 1, "hat": 0, "backpack": 0, "gloves": 0, "pin": 1 },
+    "schedule": [
+      { "start": 6, "end": 12, "x": -92, "z": 2, "activity": "work" },
+      { "start": 12, "end": 14, "x": -100, "z": 10, "activity": "sit" },
+      { "start": 14, "end": 21, "x": -92, "z": 2, "activity": "work" },
+      { "start": 21, "end": 23, "x": -91, "z": 0, "activity": "sit" },
+      { "start": 23, "end": 6, "x": -92, "z": -1, "activity": "sleep" }
+    ]
+  },
+  {
+    "id": "master_feng",
+    "name": "Master Feng",
+    "role": "Calligrapher — 文房四宝",
+    "region": "city",
+    "dialogueKey": "master_feng",
+    "giftPreference": "storm_glass",
+    "home": { "x": -126, "z": 13 },
+    "appearance": { "bodyType": 1, "skinTone": 4, "faceShape": 2, "eyes": 3, "brows": 1, "mouth": 0, "hairstyle": 0, "hairColor": 10, "jacket": 3, "shirt": 8, "pants": 10, "shoes": 8, "scarf": 0, "hat": 0, "backpack": 0, "gloves": 0, "pin": 2 },
+    "schedule": [
+      { "start": 8, "end": 13, "x": -126, "z": 12, "activity": "work" },
+      { "start": 13, "end": 15, "x": -104, "z": 12, "activity": "wander" },
+      { "start": 15, "end": 21, "x": -126, "z": 12, "activity": "work" },
+      { "start": 21, "end": 8, "x": -127, "z": 14, "activity": "sleep" }
     ]
   }
 ]

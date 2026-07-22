@@ -14,20 +14,20 @@
   --kp-shadow: 0 6px 24px rgba(51, 65, 92, 0.18);
   --kp-font: 'Trebuchet MS', 'Segoe UI', system-ui, -apple-system, sans-serif;
 
-  /* JsonSaga Show landing theme — used by the pre-game screens (title,
+  /* The Origin of JSON landing theme — used by the pre-game screens (title,
      customization, prologue, loading) so the site and the game's front
      door match. In-game HUD deliberately stays on the cozy --kp-* palette.
-     Black + lime-green + white, per the banner. Var names kept from the old
-     blue/pink theme: --js-blue* = dark backgrounds, --js-pink* = lime accent. */
+     Black + amber-gold + white, per the banner. Var names kept from the old
+     blue/pink theme: --js-blue* = dark backgrounds, --js-pink* = amber accent. */
   --js-blue: #14180f;
   --js-blue-deep: #0c0f08;
   --js-blue-ink: #070806;
-  --js-pink: #a3e635;
-  --js-pink-soft: #cdee8a;
+  --js-pink: #f5a623;
+  --js-pink-soft: #ffd27a;
   --js-white: #ffffff;
   --js-text: #eef2e4;
-  --js-text-dim: #93a07f;
-  --js-line: rgba(163, 230, 53, 0.24);
+  --js-text-dim: #9a9184;
+  --js-line: rgba(245, 166, 35, 0.24);
   --js-font: 'Poppins', 'Zen Kaku Gothic New', 'Trebuchet MS', system-ui, sans-serif;
   --js-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
@@ -153,7 +153,7 @@ html, body {
   min-width: 232px;
   background: rgba(250, 246, 236, 0.92);
   border: 2px solid var(--kp-ink);
-  /* lime spine ties the tracker back to the JsonSaga Show accent */
+  /* amber spine ties the tracker back to the Origin of JSON accent */
   border-left: 5px solid var(--js-pink, #ec4380);
   border-radius: 4px 14px 14px 4px;
   padding: 10px 14px;
@@ -633,7 +633,7 @@ html, body {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   font-family: var(--js-font);
   background:
-    radial-gradient(900px 460px at 78% 26%, rgba(163, 230, 53, 0.28), transparent 70%),
+    radial-gradient(900px 460px at 78% 26%, rgba(245, 166, 35, 0.28), transparent 70%),
     linear-gradient(180deg, var(--js-blue) 0%, var(--js-blue-deep) 62%, var(--js-blue-ink) 100%);
   overflow: hidden;
 }
@@ -657,8 +657,8 @@ html, body {
 /* the islands are re-cast as a pink city skyline, anchored to the bottom */
 .kp-title-island {
   position: absolute; border-radius: 3px 3px 0 0;
-  background: linear-gradient(180deg, rgba(163, 230, 53, 0.5), rgba(163, 230, 53, 0.16));
-  border: 1px solid rgba(163, 230, 53, 0.35); border-bottom: 0;
+  background: linear-gradient(180deg, rgba(245, 166, 35, 0.5), rgba(245, 166, 35, 0.16));
+  border: 1px solid rgba(245, 166, 35, 0.35); border-bottom: 0;
   animation: kp-skyline 7s ease-in-out infinite;
 }
 /* windows lighting up, rather than the old floating motion */
@@ -667,8 +667,8 @@ html, body {
 .kp-title-sun {
   position: absolute; top: 12%; right: 16%;
   width: 150px; height: 150px; border-radius: 50%;
-  background: radial-gradient(circle, var(--js-pink) 0%, #6f9e1f 70%);
-  box-shadow: 0 0 90px 30px rgba(163, 230, 53, 0.4);
+  background: radial-gradient(circle, var(--js-pink) 0%, #a06d12 70%);
+  box-shadow: 0 0 90px 30px rgba(245, 166, 35, 0.4);
 }
 .kp-title-card {
   text-align: center; z-index: 2; padding: 0 24px;
@@ -677,14 +677,14 @@ html, body {
 /* the logo mark sits above the wordmark */
 .kp-title-card::before {
   content: ''; width: 84px; height: 84px; margin-bottom: 20px;
-  background: url('/logo.svg') center / contain no-repeat;
+  background: url('/logo.png') center / contain no-repeat;
   filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.45));
 }
 .kp-game-title {
   font-size: clamp(40px, 9vw, 84px);
   font-weight: 800; font-style: italic; letter-spacing: -0.02em;
   color: var(--js-white); margin: 0;
-  text-shadow: 0 6px 30px rgba(163, 230, 53, 0.55);
+  text-shadow: 0 6px 30px rgba(245, 166, 35, 0.55);
 }
 .kp-game-subtitle {
   font-size: clamp(15px, 3vw, 21px); color: var(--js-pink-soft);
@@ -714,7 +714,7 @@ html, body {
 }
 .kp-wallet-connect:hover {
   background: var(--js-pink); color: #0a0c06; transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(163, 230, 53, 0.4);
+  box-shadow: 0 10px 26px rgba(245, 166, 35, 0.4);
 }
 
 /* Modal picker */
@@ -756,7 +756,7 @@ html, body {
   border-style: dashed; border-color: var(--js-line); color: var(--js-text-dim);
 }
 .kp-wallet-btn--demo:hover {
-  background: rgba(163, 230, 53, 0.16); border-color: var(--js-pink);
+  background: rgba(245, 166, 35, 0.16); border-color: var(--js-pink);
   color: var(--js-pink-soft);
 }
 .kp-wallet-status {
@@ -796,8 +796,8 @@ html, body {
 .kp-title-screen .kp-btn:hover:not(:disabled),
 .kp-custom-screen .kp-btn:hover:not(:disabled),
 .kp-cinematic .kp-btn:hover:not(:disabled) {
-  background: rgba(163, 230, 53, 0.16); transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(163, 230, 53, 0.4);
+  background: rgba(245, 166, 35, 0.16); transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(245, 166, 35, 0.4);
 }
 .kp-title-screen .kp-btn--primary,
 .kp-custom-screen .kp-btn--primary {
@@ -805,7 +805,7 @@ html, body {
 }
 .kp-title-screen .kp-btn--primary:hover:not(:disabled),
 .kp-custom-screen .kp-btn--primary:hover:not(:disabled) {
-  background: #b6f24d; color: #0a0c06;
+  background: #ffc04d; color: #0a0c06;
 }
 .kp-title-screen .kp-btn:active:not(:disabled),
 .kp-custom-screen .kp-btn:active:not(:disabled) { transform: translateY(0); }
@@ -819,7 +819,7 @@ html, body {
 .kp-custom-screen {
   position: absolute; inset: 0; font-family: var(--js-font);
   background:
-    radial-gradient(700px 340px at 70% 10%, rgba(163, 230, 53, 0.2), transparent 70%),
+    radial-gradient(700px 340px at 70% 10%, rgba(245, 166, 35, 0.2), transparent 70%),
     linear-gradient(180deg, var(--js-blue), var(--js-blue-ink));
   display: flex; gap: 14px; padding: 16px;
 }
@@ -897,7 +897,7 @@ html, body {
 .kp-loading {
   position: absolute; inset: 0; font-family: var(--js-font);
   background:
-    radial-gradient(600px 300px at 50% 45%, rgba(163, 230, 53, 0.22), transparent 70%),
+    radial-gradient(600px 300px at 50% 45%, rgba(245, 166, 35, 0.22), transparent 70%),
     linear-gradient(180deg, var(--js-blue), var(--js-blue-ink));
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;
 }
@@ -905,7 +905,7 @@ html, body {
 .kp-loading .orb {
   width: 44px; height: 44px; border-radius: 50%;
   background: radial-gradient(circle at 40% 35%, var(--js-pink-soft), var(--js-pink) 70%);
-  box-shadow: 0 0 46px 16px rgba(163, 230, 53, 0.5);
+  box-shadow: 0 0 46px 16px rgba(245, 166, 35, 0.5);
   animation: kp-float 2.2s ease-in-out infinite;
 }
 .kp-loading .msg {

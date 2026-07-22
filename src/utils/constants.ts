@@ -69,9 +69,11 @@ export const POI = {
   valleyShrine: { x: 176, z: 96 },
   orinCamp: { x: 132, z: 96 },
   riverBridge: { x: 118, z: 56 },
-  // Neon Ward (city district)
+  // Chinatown (city district)
   cityCrossing: { x: -100, z: 10 },
   cityKonbini: { x: -85, z: 8 },
+  cityGate: { x: -100, z: -6 },
+  cityPagoda: { x: -81, z: 31 },
 } as const;
 
 export type PoiId = keyof typeof POI;

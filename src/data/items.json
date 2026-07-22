@@ -16,6 +16,7 @@
   { "id": "gathering_gloves", "name": "Gathering Gloves", "description": "Sturdy gloves for thorny work.", "category": "tool", "icon": "🧤", "stack": 1 },
   { "id": "repair_hammer", "name": "Repair Hammer", "description": "For mending what the storms shook loose.", "category": "tool", "icon": "🔨", "stack": 1 },
   { "id": "veggie_stew", "name": "Hearth Stew", "description": "Tavi's recipe. Warms from the toes up.", "category": "food", "icon": "🍲", "stack": 20 },
+  { "id": "steamed_bao", "name": "Steamed Bao", "description": "Straight from Lin's bamboo steamer. Best eaten while it burns your fingers.", "category": "food", "icon": "🥟", "stack": 20 },
   { "id": "berry_tea", "name": "Berry Tea", "description": "Sweet, tart, and best shared.", "category": "food", "icon": "🍵", "stack": 20 },
   { "id": "woven_charm", "name": "Woven Charm", "description": "A small gift that says 'I was thinking of you.'", "category": "gift", "icon": "🎀", "stack": 20 },
   { "id": "flower_wreath", "name": "Flower Wreath", "description": "A crown of oversized valley blooms.", "category": "gift", "icon": "💐", "stack": 20 },

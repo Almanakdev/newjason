@@ -1,4 +1,4 @@
-# JSONSAGA SHOW — The Kiriko Vale Startup Story
+# THE ORIGIN OF JSON — The Kiriko Vale Startup Story
 
 *Write code. Make friends. Put a village back on the map.*
 

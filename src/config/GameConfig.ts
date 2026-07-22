@@ -4,7 +4,7 @@
  */
 export const GameConfig = {
   /** Game identity — change the working title here. */
-  title: 'JSONSAGA SHOW',
+  title: 'THE ORIGIN OF JSON',
   subtitle: 'The Kiriko Vale Startup Story',
   tagline: 'Write code. Make friends. Put a village back on the map.',
   version: '0.1.0',

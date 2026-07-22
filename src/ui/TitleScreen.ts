@@ -4,9 +4,9 @@ import {
   autoConnect,
   connectDemo,
   connectEthereum,
-  connectRobinhood,
+  connectBinance,
   hasEthereum,
-  hasRobinhood,
+  hasBinance,
   save as saveWallet,
   clear as clearWallet,
   shortAddress,
@@ -158,12 +158,12 @@ export class TitleScreen {
       })
     );
     opts.appendChild(
-      button('kp-wallet-btn', hasRobinhood() ? '🏹 Robinhood' : '🏹 Robinhood — install', () => {
-        if (!hasRobinhood() && !hasEthereum()) {
-          window.open('https://robinhood.com/us/en/wallet/', '_blank', 'noopener');
+      button('kp-wallet-btn', hasBinance() ? '◆ Binance Wallet' : '◆ Binance Wallet — install', () => {
+        if (!hasBinance() && !hasEthereum()) {
+          window.open('https://www.binance.com/en/web3wallet', '_blank', 'noopener');
           return;
         }
-        void this.run(connectRobinhood);
+        void this.run(connectBinance);
       })
     );
     opts.appendChild(
