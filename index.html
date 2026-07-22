@@ -491,8 +491,8 @@
       links.addEventListener('click', () => links.classList.remove('open'));
 
       // ---------- Buy Coin / Copy CA (BNB Chain) ----------
-      const CONTRACT_ADDRESS = '0xb8746edfbdf9612716215be18891d92cc20c7777';
-      const BUY_URL = 'https://flap.sh/bnb/0xb8746edfbdf9612716215be18891d92cc20c7777?lang=en';
+      const CONTRACT_ADDRESS = '0x97896d082c892c47a8da22b7731b71842cc8ffff';
+      const BUY_URL = 'https://four.meme/en/token/0x97896d082c892c47a8da22b7731b71842cc8ffff';
 
       const buyCoin = document.getElementById('buyCoin');
       if (BUY_URL) {
@@ -508,7 +508,7 @@
       const caLine = document.getElementById('caLine');
 
       if (CONTRACT_ADDRESS) {
-        // Show the CA under the hero as a link to the flap.sh page.
+        // Show the CA under the hero as a link to the four.meme page.
         caLine.innerHTML = '';
         const caLink = document.createElement('a');
         caLink.href = BUY_URL || '#';
